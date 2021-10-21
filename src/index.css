@@ -11,3 +11,47 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+input {
+  border: none;
+}
+
+input[type=text] {
+  font-size: 1.5em;
+  border: 0;
+  margin: 1em;
+  outline: none;
+  width: 90%;
+}
+
+form input {
+  display: block;
+}
+
+textarea {
+  background-color: #eee;
+  font-size: 1.9em;
+  height: 5em;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-left: 1em;
+}
+
+button {
+  font-family: inherit;
+  font-size: 100%;
+  padding: .5em 1em;
+  border: 1px solid #0078e7;
+  background-color: transparent;
+  color: #0078e7;
+  text-decoration: none;
+  border-radius: 2px;
+  margin: 5px;
+}
+
+button:hover {
+  cursor:pointer;
+  background-color: #0078e7;
+  color: #fff;
+}
