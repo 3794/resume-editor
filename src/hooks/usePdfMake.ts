@@ -1,3 +1,4 @@
+// @ts-nocheck
 import pdfmake from 'pdfmake';
 
 // pdfmake.fonts = {
@@ -23,7 +24,7 @@ pdfmake.fonts = {
 function usePdfMake() {
 
   return {
-    createPdf(content) {
+    createPdf(content: any[]) {
       return pdfmake.createPdf({
         content, styles: {
           h1: {

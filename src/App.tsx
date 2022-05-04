@@ -3,11 +3,12 @@ import { Field, FieldArray, Form, Formik } from 'formik';
 import { PersistFormikValues } from 'formik-persist-values';
 import typesetting from './typesetting';
 import './App.css';
+import { Values } from './interface';
 
 function App() {
   const pdf = usePdfMake();
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values: Values) => {
     pdf
       .createPdf(typesetting(values))
       .download();
@@ -19,8 +20,23 @@ function App() {
         initialValues={{
           name: '',
           email: '',
-          job: [{ company: '' }],
-          certificate: [{ name: '' }]
+          phone: '',
+          site: '',
+          description: '',
+          school: '',
+          schoolMajor: '',
+          schoolPeriod: '',
+          schoolContent: '',
+          job: [{ 
+            company: '',
+            role: '', 
+            description: '', 
+            period: '', 
+          }],
+          certificate: [{ 
+            name: '',
+            period: '', 
+          }]
         }}
         onSubmit={handleSubmit}
         render={({ values }) => (
@@ -68,7 +84,6 @@ function App() {
                 </div>
               )}
             />
-
             <h2>학력</h2>
             <Field type="text" name="school" label="학교명" placeholder="학교명" />
             <Field type="text" name="schoolMajor" label="전공 및 학위" placeholder="전공 및 학위" />

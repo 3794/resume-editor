@@ -1,4 +1,6 @@
-export default function typesetting(values) {
+import { Values } from "./interface";
+
+export default function typesetting(values: Values) {
   const {
     name,
     email,
@@ -13,7 +15,7 @@ export default function typesetting(values) {
     certificate,
   } = values;
 
-  const jobs = job.reduce((prev, { company, role, description, period }) => {
+  const jobs = job.reduce((prev: any[], { company, role, description, period }) => {
     return [
       ...prev,
       { text: role, style: 'h3' },
@@ -29,7 +31,7 @@ export default function typesetting(values) {
     ];
   }, []);
 
-  const certificates = certificate.reduce((prev, { name, period }) => {
+  const certificates = certificate.reduce((prev: any[], { name, period }) => {
     return [...prev, name, period, { text: '', style: 'br' }];
   }, []);
 

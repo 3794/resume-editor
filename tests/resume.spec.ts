@@ -28,7 +28,6 @@ test.describe('이력서', () => {
     await page.locator('input[name="job\\.0\\.period"]').fill('2020.10 ~ 2021.10');
     await page.locator('textarea[name="job\\.0\\.description"]').fill('여러업무를 진행함.');
   });
-
   
   test('경력 컴포넌트를 추가해서 작성할 수 있다', async ({ page }) => {
     await page.locator('text=+').first().click();
@@ -70,5 +69,4 @@ test.describe('이력서', () => {
       page.locator('text=PDF 다운로드').click()
     ]);
   })
-  
 });
