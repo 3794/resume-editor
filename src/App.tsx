@@ -3,7 +3,7 @@ import { Field, FieldArray, Form, Formik } from 'formik';
 import { PersistFormikValues } from 'formik-persist-values';
 import typesetting from './typesetting';
 import './App.css';
-import { Values } from './interface';
+import { Values } from './model/interface';
 
 function App() {
   const pdf = usePdfMake();

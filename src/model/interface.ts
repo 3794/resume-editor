@@ -8,6 +8,7 @@ export interface Values {
     schoolMajor: string
     schoolPeriod: string
     schoolContent: string
+    language: string
     job: Job[]
     certificate: Certificate[]
   }
