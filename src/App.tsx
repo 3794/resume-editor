@@ -36,7 +36,8 @@ function App() {
           certificate: [{ 
             name: '',
             period: '', 
-          }]
+          }],
+          language: '',
         }}
         onSubmit={handleSubmit}
         render={({ values }) => (
@@ -92,7 +93,7 @@ function App() {
             <div style={{ display: 'flex', justifyContent: 'center' }}>
               <button>+</button>
             </div>
-            <h2>개인 프로젝트</h2>
+            {/* <h2>개인 프로젝트</h2> */}
             <h2>수상/자격증</h2>
             <FieldArray
               name="certificate"
@@ -123,9 +124,8 @@ function App() {
                 </div>
               )}
             />
-            <h2>출판/논문/특허</h2>
-            <h2>외국어</h2>
-            <Field type="text" name="language" label="외국어" placeholder="외국어" />
+            <h2>기타</h2>
+            <Field type="text" name="language" label="기타" placeholder="기타" />
             <PersistFormikValues name="resume-form" />
           </Form>
         )}

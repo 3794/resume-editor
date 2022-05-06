@@ -13,6 +13,7 @@ export default function typesetting(values: Values) {
     schoolPeriod,
     schoolContent,
     certificate,
+    language,
   } = values;
 
   const jobs = job.reduce((prev: any[], { company, role, description, period }) => {
@@ -51,7 +52,9 @@ export default function typesetting(values: Values) {
     schoolPeriod,
     schoolContent,
     { text: '', style: 'br' },
-    { text: '수상/자격증', style: 'h2' },
+    { text: '자격증', style: 'h2' },
     certificates,
+    { text: '기타', style: 'h2' },
+    language,
   ];
 }

@@ -54,13 +54,13 @@ test.describe('이력서', () => {
     await expect(loc).toBeVisible();
   });
 
-  test('개인 프로젝트를 작성할 수 있다', async ({ page }) => {
+  test('자격을 작성할 수 있다', async ({ page }) => {
     await page.locator('[placeholder="자격증"]').fill('좋은자격증');
-    await page.locator('input[name="certificate\\.0\\.period"]').fill('2000.02 ~ 2004.02');
+    await page.locator('input[name="certificate\\.0\\.period"]').fill('2000.02');
   });
 
-  test('외국어를 작성할 수 있다', async ({ page }) => {
-    await page.locator('[placeholder="외국어"]').fill('간단한 영어 회화');
+  test('기타를 작성할 수 있다', async ({ page }) => {
+    await page.locator('[placeholder="기타"]').fill('아무거나');
   });
 
   test('PDF 다운로드', async ({ page }) => {
