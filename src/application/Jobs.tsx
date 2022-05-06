@@ -1,21 +1,17 @@
-import { useFieldArray, useFormContext } from "react-hook-form";
+import { useFormContext } from "react-hook-form";
+import useFieldArrayUtils from "../service/useFieldArrayUtils";
 
 function Jobs(){
   const { register } = useFormContext();
-  const { fields, append, remove } = useFieldArray({ name: 'job' });
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'job' });
 
   return (
     <>
       {fields.map((field: any, index: number) => (
         <div key={field.id}>
-          <div style={{ float: 'right' }}>
-            <button
-              type="button"
-              onClick={() => remove(index)}
-            >
-              X
-            </button>
-          </div>
+          
+          <Remove index={index} />
+
           <label>회사명</label>
           <input placeholder="회사명" {...register(`job.${index}.company`)} />
           <label>직무</label>
@@ -26,17 +22,10 @@ function Jobs(){
           <textarea placeholder="상세 업무 및 성과" {...register(`job.${index}.description`)} />
         </div>
       ))}
-      <div className="flex-center">
-        <button
-          type="button"
-          onClick={() => append(1)}
-        >
-          +
-        </button>
-      </div>
+
+      <Append />
     </>
   )
 }
-
 
 export default Jobs;
