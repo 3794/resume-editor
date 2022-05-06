@@ -1,7 +1,7 @@
 import usePdfMake from './service/usePdfMake';
 import { Field, FieldArray, Form, Formik } from 'formik';
 import { PersistFormikValues } from 'formik-persist-values';
-import typesetting from './typesetting';
+import typesetting from './service/typesetting';
 import './App.css';
 import { Values } from './model/interface';
 

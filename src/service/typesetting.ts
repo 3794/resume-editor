@@ -1,4 +1,4 @@
-import { Values } from "./model/interface";
+import { Values } from "../model/interface";
 
 export default function typesetting(values: Values) {
   const {
