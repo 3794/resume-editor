@@ -16,12 +16,12 @@ function App() {
     },
   });
 
-  const { register, handleSubmit } = methods
-  
+  const { register, handleSubmit } = methods;
+
   const onSubmit: SubmitHandler<Values> = data => {
     pdf
       .createPdf(typesetting(data))
-      .download();  
+      .download();
   }
 
   return (
