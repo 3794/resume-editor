@@ -1,28 +1,14 @@
 {
-  "name": "resume",
+  "name": "resume-editor",
   "version": "0.1.0",
-  "private": true,
   "scripts": {
-    "start": "npm run dev",
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
+    "start": "npm run dev --workspace=client",
     "test": "npx playwright test"
   },
-  "dependencies": {
-    "pdfmake": "^0.2.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "react-hook-form": "^7.30.0"
-  },
   "devDependencies": {
-    "@types/react": "^18.0.0",
-    "@types/react-dom": "^18.0.0",
-    "@vitejs/plugin-react": "^1.3.0",
-    "@types/pdfmake": "^0.1.21",
-    "typescript": "^4.6.3",
-    "vite": "^2.9.7",
-    "react-scripts": "4.0.3",
     "@playwright/test": "^1.21.1"
-  }
+  },
+  "workspaces": [
+    "packages/client"
+  ]
 }
