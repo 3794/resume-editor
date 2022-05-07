@@ -1,31 +1,4 @@
-export interface Values {
-  name: string
-  email: string
-  phone: string
-  site: string
-  description: string
-  school: string
-  schoolMajor: string
-  schoolPeriod: string
-  schoolContent: string
-  language: string
-  job: Job[]
-  certificate: Certificate[]
-}
-
-export interface Job {
-  company: string
-  role: string 
-  description: string 
-  period: string 
-}
-
-export interface Certificate {
-  name: string
-  period: string
-}
-
-interface Profiles {
+interface IProfiles {
   network: string //"Twitter",
   username: string //"john",
   url: string //"https://twitter.com/john"
@@ -45,9 +18,11 @@ export interface IBasics {
     city: string //"San Francisco",
     countryCode: string //"US",
     region: string //"California"
-  }
-  profiles: Profiles[]
+  } 
+  profiles: IProfiles[]
 }
+
+
 
 export interface IWork {
   name: string //"Company",
@@ -77,7 +52,7 @@ export interface IEducation {
   startDate: string // "2011-01-01",
   endDate: string // "2013-01-01",
   score: string // "4.0",
-  courses: string // ["DB1101 - Basic SQL"]
+  courses: string[] // ["DB1101 - Basic SQL"]
 }
 
 export interface IAwards {

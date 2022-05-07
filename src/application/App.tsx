@@ -1,24 +1,33 @@
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import { Values } from '../model/interface';
+import { IResume } from '../model/interface';
+import { resumeDefaultValues } from "../model/defaultValues";
 import typesetting from '../service/typesetting';
 import usePdfMake from '../service/usePdfMake';
-import Jobs from './Jobs';
 import Certificates from './Certificates';
+import Education from './Education';
+import Basics from "./Basics";
+import Work from "./Work";
+import Viewer from "./Viewer";
+import Volunteer from "./Volunteer";
+import Awards from "./Awards";
+import Publications from "./Publications";
+import Skills from "./Skills";
+import Languages from "./Languages";
+import Interests from "./Interests";
+import References from "./References";
+import Projects from "./Projects";
 import './App.css';
 
 function App() {
   const pdf = usePdfMake();
 
-  const methods = useForm<Values>({
-    defaultValues:{
-      job: [{ company: '', role: '', description: '', period: '' }],
-      certificate: [{ name: '', period: '' }],
-    },
+  const methods = useForm<IResume>({
+    defaultValues: resumeDefaultValues,
   });
 
-  const { register, handleSubmit } = methods;
+  const { handleSubmit } = methods;
 
-  const onSubmit: SubmitHandler<Values> = data => {
+  const onSubmit: SubmitHandler<IResume> = data => {
     pdf
       .createPdf(typesetting(data))
       .download();
@@ -30,36 +39,25 @@ function App() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="flex-end">
             <button type="submit">
-              PDF 다운로드
+              Download PDF
             </button>
           </div>
 
-          <h2>기본 정보</h2>
-          <input placeholder="이름" {...register("name")} />
-          <input placeholder="이메일" {...register("email")} />
-          <input placeholder="연락처" {...register("phone")} />
-          <input placeholder="블로그/웹사이트" {...register("site")} />
-          <textarea placeholder="소개" {...register("description")} />
-          
-          <h2>경력</h2>
-          <Jobs />
-            
-          <h2>학력</h2>
-          <input placeholder="학교명" {...register("school")} />
-          <input placeholder="전공 및 학위" {...register("schoolMajor")} />
-          <input aria-label='기간' placeholder="YYYY.MM - YYYY.MM" {...register("schoolPeriod")} />
-          <textarea placeholder="연구내용" {...register("schoolContent")} />
-
-          <div style={{ display: 'flex', justifyContent: 'center' }}>
-            <button>+</button>
-          </div>
-
-          <h2>수상/자격증</h2>
+          <Basics />
+          <Work />
+          <Volunteer />
+          <Education />
+          <Awards />
           <Certificates />
-          
-          <h2>기타</h2>
-          <input placeholder="기타" {...register("language")} />
+          <Publications />
+          <Skills />
+          <Languages />
+          <Interests />
+          <References />
+          <Projects />
+
         </form>
+        <Viewer />
       </FormProvider>
     </div >
   );

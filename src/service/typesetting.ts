@@ -1,60 +1,43 @@
-import { Values } from "../model/interface";
+import { IResume } from "../model/interface";
 
-export default function typesetting(values: Values) {
+export default function typesetting(values: IResume) {
   const {
-    name,
-    email,
-    phone,
-    site,
-    description,
-    job,
-    school,
-    schoolMajor,
-    schoolPeriod,
-    schoolContent,
-    certificate,
-    language,
+    basics,
+    work,certificates
   } = values;
 
-  const jobs = job.reduce((prev: any[], { company, role, description, period }) => {
+  const works = work.reduce((prev: any[], { name, position, summary, startDate, endDate }) => {
     return [
       ...prev,
-      { text: role, style: 'h3' },
+      { text: position, style: 'h3' },
       {
         stack: [
-          { text: company, style: 'h4' },
-          period,
+          { text: name, style: 'h4' },
+          startDate, endDate,
           { text: '', style: 'br' },
-          description,
+          summary,
         ],
         style: 'superMargin'
       }
     ];
   }, []);
 
-  const certificates = certificate.reduce((prev: any[], { name, period }) => {
-    return [...prev, name, period, { text: '', style: 'br' }];
+  const _certificates = certificates.reduce((prev: any[], { name, date }) => {
+    return [...prev, name, date, { text: '', style: 'br' }];
   }, []);
 
   return [
-    { text: name, style: 'h1' },
-    email,
-    phone,
-    site,
+    { text: basics.name, style: 'h1' },
+    basics.email,
+    basics.phone,
+    basics.url,
     { text: '', style: 'br' },
-    description,
+    basics.summary,
     { text: '', style: 'br' },
     { text: '경력', style: 'h2' },
-    jobs,
-    { text: '학력', style: 'h2' },
-    school,
-    schoolMajor,
-    schoolPeriod,
-    schoolContent,
+    works,
     { text: '', style: 'br' },
     { text: '자격증', style: 'h2' },
-    certificates,
-    { text: '기타', style: 'h2' },
-    language,
+    _certificates,
   ];
 }

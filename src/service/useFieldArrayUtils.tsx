@@ -1,6 +1,6 @@
 import { useFieldArray, UseFieldArrayProps } from "react-hook-form";
 
-function useFieldArrayUtils(fildArrayProps: UseFieldArrayProps) {
+function useFieldArrayUtils<T>(fildArrayProps: UseFieldArrayProps) {
   const { fields, append, remove } = useFieldArray(fildArrayProps);
 
   const Remove = ({ index }: { index: number }) => (
@@ -14,11 +14,11 @@ function useFieldArrayUtils(fildArrayProps: UseFieldArrayProps) {
     </div>
   )
 
-  const Append = () => (
+  const Append = ({ defaultValue }: { defaultValue: T }) => (
     <div className="flex-center">
       <button
         type="button"
-        onClick={() => append(1)}
+        onClick={() => append(defaultValue)}
       >
         +
       </button>
