@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express'
+import fs from 'fs'
 
 const app = express()
+app.use(express.json())
 
 app.get('/api', async (req: Request, res: Response) => {
   console.log('Hello world')
@@ -8,8 +10,10 @@ app.get('/api', async (req: Request, res: Response) => {
 })
 
 app.put('/api/save', async (req: Request, res: Response) => {
-  console.log('save')
-  res.send('ok')
+  const data = req.body
+  fs.writeFileSync('data.json', JSON.stringify(data, null, 2))
+
+  res.send({ result: 'ok' })
 })
 
 const port = 8080

@@ -1,5 +1,5 @@
+import { awardsDefaultValue } from 'model/defaultValues'
 import { useFormContext } from 'react-hook-form'
-import { awardsDefaultValue } from '../model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function Awards () {

@@ -1,6 +1,4 @@
 import { FormProvider, SubmitHandler, useForm } from 'react-hook-form'
-import { IResume } from '../model/interface'
-import { resumeDefaultValues } from '../model/defaultValues'
 import typesetting from '../service/typesetting'
 import usePdfMake from '../service/usePdfMake'
 import Certificates from './Certificates'
@@ -17,6 +15,8 @@ import Interests from './Interests'
 import References from './References'
 import Projects from './Projects'
 import './App.css'
+import { resumeDefaultValues } from 'model/defaultValues'
+import { IResume } from 'model/interface'
 
 function App () {
   const pdf = usePdfMake()
@@ -28,9 +28,24 @@ function App () {
   const { handleSubmit } = methods
 
   const onSubmit: SubmitHandler<IResume> = data => {
-    pdf
-      .createPdf(typesetting(data))
-      .download()
+    fetch('/api/save', {
+      method: 'PUT', // 또는 'PUT'
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log('성공:', data)
+      })
+      .catch((error) => {
+        console.error('실패:', error)
+      })
+
+    // pdf
+    //   .createPdf(typesetting(data))
+    //   .download()
   }
 
   return (

@@ -1,18 +1,18 @@
-import { useState } from 'react'
+import { ChangeEvent, MouseEvent, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { educationDefaultValue } from '../model/defaultValues'
+import { educationDefaultValue } from 'model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function HighLights ({ index }: {index: number }) {
   const { setValue, getValues } = useFormContext()
   const [fields, setFields] = useState<string[]>([''])
 
-  const handleAppend = (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleAppend = (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
     setFields(['', ...fields])
   }
 
-  const handleChangeHighlight = (e: React.ChangeEvent<HTMLInputElement>, highlightIndex: number) => {
+  const handleChangeHighlight = (e: ChangeEvent<HTMLInputElement>, highlightIndex: number) => {
     const value = e.target.value
     const courses = getValues(`education.${index}.courses`) || []
     courses[highlightIndex] = value

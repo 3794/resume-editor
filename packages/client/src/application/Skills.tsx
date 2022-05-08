@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { volunteerDefaultValue } from '../model/defaultValues'
+import { volunteerDefaultValue } from 'model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function HighLights ({ index }: {index: number }) {

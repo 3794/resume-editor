@@ -1,5 +1,5 @@
+import { publicationsDefaultValues } from 'model/defaultValues'
 import { useFormContext } from 'react-hook-form'
-import { publicationsDefaultValues } from '../model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function Publications () {

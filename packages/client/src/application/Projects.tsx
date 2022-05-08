@@ -1,6 +1,6 @@
+import { projectsDefaultValues } from 'model/defaultValues'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { projectsDefaultValues } from '../model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function HighLights ({ index }: {index: number }) {

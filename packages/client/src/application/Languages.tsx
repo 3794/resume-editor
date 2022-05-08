@@ -1,5 +1,5 @@
+import { languagesDefaultValues } from 'model/defaultValues'
 import { useFormContext } from 'react-hook-form'
-import { languagesDefaultValues } from '../model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function Languages () {

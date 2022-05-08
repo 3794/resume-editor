@@ -7,6 +7,7 @@
 Using NPM v8 workspaces(https://docs.npmjs.com/cli/v8/using-npm/workspaces)
 ```
 ├── packages
+│   ├── model
 │   ├── client
 │   └── server
 └── tests: E2E test
