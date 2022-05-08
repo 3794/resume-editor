@@ -20,7 +20,7 @@ function useFieldArrayUtils<T> (fildArrayProps: UseFieldArrayProps) {
         type="button"
         onClick={() => append(defaultValue)}
       >
-        +
+        Add
       </button>
     </div>
   )

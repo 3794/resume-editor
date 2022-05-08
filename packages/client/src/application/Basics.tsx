@@ -1,12 +1,8 @@
+import { ChangeEvent, MouseEvent, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function Basics () {
   const { register } = useFormContext()
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'basics.profiles' })
-  const profilesDefaultValue = {
-    profiles: ''
-  }
 
   return (
     <>
@@ -23,17 +19,36 @@ function Basics () {
       <input placeholder="Location.City" {...register('basics.location.city')} />
       <input placeholder="Location.CountryCode" {...register('basics.location.countryCode')} />
       <input placeholder="Location.Region" {...register('basics.location.region')} />
+      <HighLights />
 
-      {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+    </>
+  )
+}
 
-          <Remove index={index} />
+function HighLights () {
+  const { setValue, getValues } = useFormContext()
+  const [fields, setFields] = useState<string[]>([''])
 
-          <input placeholder="Profiles" {...register(`basics.${index}.profiles`)} />
+  const handleAppend = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault()
+    setFields(['', ...fields])
+  }
+
+  const handleChangeHighlight = (e: ChangeEvent<HTMLInputElement>, highlightIndex: number) => {
+    const value = e.target.value
+    const courses = getValues('basics.profiles') || []
+    courses[highlightIndex] = value
+    setValue('basics.profiles', courses)
+  }
+
+  return (
+    <>
+      {fields.map((field: string, index: number) => (
+        <div key={index}>
+          <input placeholder="courses" onChange={(e) => handleChangeHighlight(e, index)} />
         </div>
       ))}
-
-      <Append defaultValue={profilesDefaultValue}/>
+      <button onClick={handleAppend}>+</button>
     </>
   )
 }
