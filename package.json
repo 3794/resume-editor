@@ -2,7 +2,7 @@
   "name": "resume-editor",
   "version": "0.1.0",
   "scripts": {
-    "start": "npm run dev --workspace=client",
+    "start": "npm run start --workspace=server & npm run dev --workspace=client",
     "test": "npx playwright test"
   },
   "devDependencies": {
