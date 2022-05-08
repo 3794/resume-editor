@@ -43,9 +43,9 @@ function App () {
         console.error('실패:', error)
       })
 
-    // pdf
-    //   .createPdf(typesetting(data))
-    //   .download()
+    pdf
+      .createPdf(typesetting(data))
+      .download()
   }
 
   return (
