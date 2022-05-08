@@ -1,10 +1,10 @@
-import { useFormContext } from "react-hook-form";
-import { referencesDefaultValues } from "../model/defaultValues";
-import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import { useFormContext } from 'react-hook-form'
+import { referencesDefaultValues } from '../model/defaultValues'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function References(){
-  const { register } = useFormContext();
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'references' });
+function References () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'references' })
 
   return (
     <>
@@ -22,4 +22,4 @@ function References(){
   )
 }
 
-export default References;
+export default References

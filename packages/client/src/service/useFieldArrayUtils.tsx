@@ -1,7 +1,7 @@
-import { useFieldArray, UseFieldArrayProps } from "react-hook-form";
+import { useFieldArray, UseFieldArrayProps } from 'react-hook-form'
 
-function useFieldArrayUtils<T>(fildArrayProps: UseFieldArrayProps) {
-  const { fields, append, remove } = useFieldArray(fildArrayProps);
+function useFieldArrayUtils<T> (fildArrayProps: UseFieldArrayProps) {
+  const { fields, append, remove } = useFieldArray(fildArrayProps)
 
   const Remove = ({ index }: { index: number }) => (
     <div style={{ float: 'right' }}>
@@ -30,4 +30,4 @@ function useFieldArrayUtils<T>(fildArrayProps: UseFieldArrayProps) {
   }
 }
 
-export default useFieldArrayUtils;
+export default useFieldArrayUtils

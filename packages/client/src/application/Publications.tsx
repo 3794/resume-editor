@@ -1,10 +1,10 @@
-import { useFormContext } from "react-hook-form";
-import { publicationsDefaultValues } from "../model/defaultValues";
-import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import { useFormContext } from 'react-hook-form'
+import { publicationsDefaultValues } from '../model/defaultValues'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Publications(){
-  const { register } = useFormContext();
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'publications' });
+function Publications () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'publications' })
 
   return (
     <>
@@ -25,4 +25,4 @@ function Publications(){
   )
 }
 
-export default Publications;
+export default Publications

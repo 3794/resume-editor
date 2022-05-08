@@ -1,10 +1,10 @@
-import { useFormContext } from "react-hook-form";
-import { languagesDefaultValues } from "../model/defaultValues";
-import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import { useFormContext } from 'react-hook-form'
+import { languagesDefaultValues } from '../model/defaultValues'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Languages(){
-  const { register } = useFormContext();
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'languages' });
+function Languages () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'languages' })
 
   return (
     <>
@@ -22,4 +22,4 @@ function Languages(){
   )
 }
 
-export default Languages;
+export default Languages

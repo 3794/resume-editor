@@ -1,31 +1,29 @@
 interface IProfiles {
-  network: string //"Twitter",
-  username: string //"john",
-  url: string //"https://twitter.com/john"
+  network: string // "Twitter",
+  username: string // "john",
+  url: string // "https://twitter.com/john"
 }
 
 export interface IBasics {
-  name: string //"John Doe",
-  label: string //"Programmer",
-  image: string //"",
-  email: string //"john@gmail.com",
-  phone: string //"(912) 555-4321",
-  url: string //"https://johndoe.com",
-  summary: string //"A summary of John Doe…",
+  name: string // "John Doe",
+  label: string // "Programmer",
+  image: string // "",
+  email: string // "john@gmail.com",
+  phone: string // "(912) 555-4321",
+  url: string // "https://johndoe.com",
+  summary: string // "A summary of John Doe…",
   location: {
-    address: string //"2712 Broadway St",
-    postalCode: string //"CA 94115",
-    city: string //"San Francisco",
-    countryCode: string //"US",
-    region: string //"California"
-  } 
+    address: string // "2712 Broadway St",
+    postalCode: string // "CA 94115",
+    city: string // "San Francisco",
+    countryCode: string // "US",
+    region: string // "California"
+  }
   profiles: IProfiles[]
 }
 
-
-
 export interface IWork {
-  name: string //"Company",
+  name: string // "Company",
   position: string // "President",
   url: string // "https://company.com",
   startDate: string // "2013-01-01",
@@ -35,13 +33,13 @@ export interface IWork {
 }
 
 export interface IVolunteer {
-  organization: string //"Organization",
-  position: string //"Volunteer",
-  url: string //"https://organization.com/",
-  startDate: string //"2012-01-01",
-  endDate: string //"2013-01-01",
-  summary: string //"Description…",
-  highlights: string[] //["Awarded 'Volunteer of the Month'"]
+  organization: string // "Organization",
+  position: string // "Volunteer",
+  url: string // "https://organization.com/",
+  startDate: string // "2012-01-01",
+  endDate: string // "2013-01-01",
+  summary: string // "Description…",
+  highlights: string[] // ["Awarded 'Volunteer of the Month'"]
 }
 
 export interface IEducation {
@@ -77,9 +75,9 @@ export interface IPublications {
 }
 
 export interface ISkills {
-  name: string //"Web Development",
-  level: string //"Master",
-  keywords: string[] //["HTML","CSS","JavaScript"]
+  name: string // "Web Development",
+  level: string // "Master",
+  keywords: string[] // ["HTML","CSS","JavaScript"]
 }
 
 export interface ILanguages {
@@ -88,8 +86,8 @@ export interface ILanguages {
 }
 
 export interface IInterests {
-  name: string //"Wildlife",
-  keywords: string[] //["Ferrets","Unicorns"]
+  name: string // "Wildlife",
+  keywords: string[] // ["Ferrets","Unicorns"]
 }
 
 export interface IReferences {
@@ -115,10 +113,10 @@ export interface IResume {
   work: IWork[]
   volunteer: IVolunteer[]
   education: IEducation[]
-  awards: IAwards[] 
-  certificates: ICertificates[] 
-  publications: IPublications[] 
-  skills: ISkills[] 
+  awards: IAwards[]
+  certificates: ICertificates[]
+  publications: IPublications[]
+  skills: ISkills[]
   languages: ILanguages[]
   interests: IInterests
   references: IReferences[]

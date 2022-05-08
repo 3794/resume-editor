@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { useFormContext } from "react-hook-form";
-import { projectsDefaultValues, volunteerDefaultValue } from "../model/defaultValues";
-import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import React, { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { projectsDefaultValues } from '../model/defaultValues'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function HighLights({ index }: {index: number }){
-  const { setValue, getValues } = useFormContext();
-  const [fields, setFields] = useState<string[]>(['']);
+function HighLights ({ index }: {index: number }) {
+  const { setValue, getValues } = useFormContext()
+  const [fields, setFields] = useState<string[]>([''])
 
   const handleAppend = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setFields(['', ...fields]);
+    e.preventDefault()
+    setFields(['', ...fields])
   }
 
   const handleChangeHighlight = (e: React.ChangeEvent<HTMLInputElement>, highlightIndex: number) => {
-    const value = e.target.value;
-    const highlights = getValues(`volunteer.${index}.highlights`) || [];
-    highlights[highlightIndex] = value;
-    setValue(`volunteer.${index}.highlights`, highlights);
+    const value = e.target.value
+    const highlights = getValues(`volunteer.${index}.highlights`) || []
+    highlights[highlightIndex] = value
+    setValue(`volunteer.${index}.highlights`, highlights)
   }
 
   return (
@@ -31,9 +31,9 @@ function HighLights({ index }: {index: number }){
   )
 }
 
-function Projects(){
-  const { register } = useFormContext();
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'projects' });
+function Projects () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'projects' })
 
   return (
     <>
@@ -63,4 +63,4 @@ function Projects(){
   )
 }
 
-export default Projects;
+export default Projects

@@ -1,22 +1,22 @@
-import { useState } from "react";
-import { useFormContext } from "react-hook-form";
-import { volunteerDefaultValue } from "../model/defaultValues";
-import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import React, { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { volunteerDefaultValue } from '../model/defaultValues'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function HighLights({ index }: {index: number }){
-  const { setValue, getValues } = useFormContext();
-  const [fields, setFields] = useState<string[]>(['']);
+function HighLights ({ index }: {index: number }) {
+  const { setValue, getValues } = useFormContext()
+  const [fields, setFields] = useState<string[]>([''])
 
   const handleAppend = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setFields(['', ...fields]);
+    e.preventDefault()
+    setFields(['', ...fields])
   }
 
   const handleChangeHighlight = (e: React.ChangeEvent<HTMLInputElement>, highlightIndex: number) => {
-    const value = e.target.value;
-    const keywords = getValues(`skills.${index}.keywords`) || [];
-    keywords[highlightIndex] = value;
-    setValue(`skills.${index}.keywords`, keywords);
+    const value = e.target.value
+    const keywords = getValues(`skills.${index}.keywords`) || []
+    keywords[highlightIndex] = value
+    setValue(`skills.${index}.keywords`, keywords)
   }
 
   return (
@@ -31,9 +31,9 @@ function HighLights({ index }: {index: number }){
   )
 }
 
-function Skills(){
-  const { register } = useFormContext();
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'skills' });
+function Skills () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'skills' })
 
   return (
     <>
@@ -53,4 +53,4 @@ function Skills(){
   )
 }
 
-export default Skills;
+export default Skills

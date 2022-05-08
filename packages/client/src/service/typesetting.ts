@@ -1,10 +1,10 @@
-import { IResume } from "../model/interface";
+import { IResume } from '../model/interface'
 
-export default function typesetting(values: IResume) {
+export default function typesetting (values: IResume) {
   const {
     basics,
-    work,certificates
-  } = values;
+    work, certificates
+  } = values
 
   const works = work.reduce((prev: any[], { name, position, summary, startDate, endDate }) => {
     return [
@@ -15,16 +15,16 @@ export default function typesetting(values: IResume) {
           { text: name, style: 'h4' },
           startDate, endDate,
           { text: '', style: 'br' },
-          summary,
+          summary
         ],
         style: 'superMargin'
       }
-    ];
-  }, []);
+    ]
+  }, [])
 
   const _certificates = certificates.reduce((prev: any[], { name, date }) => {
-    return [...prev, name, date, { text: '', style: 'br' }];
-  }, []);
+    return [...prev, name, date, { text: '', style: 'br' }]
+  }, [])
 
   return [
     { text: basics.name, style: 'h1' },
@@ -38,6 +38,6 @@ export default function typesetting(values: IResume) {
     works,
     { text: '', style: 'br' },
     { text: '자격증', style: 'h2' },
-    _certificates,
-  ];
+    _certificates
+  ]
 }

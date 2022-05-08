@@ -1,10 +1,10 @@
-import { useFormContext } from "react-hook-form";
-import { awardsDefaultValue } from "../model/defaultValues";
-import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import { useFormContext } from 'react-hook-form'
+import { awardsDefaultValue } from '../model/defaultValues'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Awards(){
-  const { register } = useFormContext();
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'awards' });
+function Awards () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'awards' })
 
   return (
     <>
@@ -24,4 +24,4 @@ function Awards(){
   )
 }
 
-export default Awards;
+export default Awards

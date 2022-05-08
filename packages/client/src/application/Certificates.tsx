@@ -1,10 +1,10 @@
-import { useFormContext } from "react-hook-form";
-import { certificatesDefaultValue } from "../model/defaultValues";
-import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import { useFormContext } from 'react-hook-form'
+import { certificatesDefaultValue } from '../model/defaultValues'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Certificates(){
-  const { register } = useFormContext();
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'certificates' });
+function Certificates () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'certificates' })
 
   return (
     <>
@@ -24,4 +24,4 @@ function Certificates(){
   )
 }
 
-export default Certificates;
+export default Certificates

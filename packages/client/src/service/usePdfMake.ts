@@ -1,5 +1,5 @@
 // @ts-nocheck
-import pdfmake from 'pdfmake';
+import pdfmake from 'pdfmake'
 
 // pdfmake.fonts = {
 //   // download default Roboto font from cdnjs.com
@@ -18,15 +18,15 @@ pdfmake.fonts = {
     bold: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf',
     italics: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf',
     bolditalics: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf'
-  },
+  }
 }
 
-function usePdfMake() {
-
+function usePdfMake () {
   return {
-    createPdf(content: any[]) {
+    createPdf (content: any[]) {
       return pdfmake.createPdf({
-        content, styles: {
+        content,
+        styles: {
           h1: {
             fontSize: 20,
             bold: true,
@@ -58,10 +58,10 @@ function usePdfMake() {
             fontSize: 13,
             color: 'black'
           }
-        },
-      });
+        }
+      })
     }
   }
 }
 
-export default usePdfMake;
+export default usePdfMake

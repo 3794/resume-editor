@@ -1,10 +1,10 @@
-import { useFormContext } from "react-hook-form";
+import { useFormContext } from 'react-hook-form'
 
-function Viewer(){
-  const { watch } = useFormContext();
-  const data = watch();
+function Viewer () {
+  const { watch } = useFormContext()
+  const data = watch()
 
-  const _data = JSON.stringify(data);
+  const _data = JSON.stringify(data)
   return (
     <div>
         {_data}
@@ -12,4 +12,4 @@ function Viewer(){
   )
 }
 
-export default Viewer;
+export default Viewer

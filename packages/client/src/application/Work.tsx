@@ -1,23 +1,22 @@
-import { useState } from "react";
-import { useFormContext } from "react-hook-form";
-import { workDefaultValue } from "../model/defaultValues";
-import { IWork } from "../model/interface";
-import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import React, { useState } from 'react'
+import { useFormContext } from 'react-hook-form'
+import { workDefaultValue } from '../model/defaultValues'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function WorkHeights({ index }: {index: number }){
-  const { setValue, getValues } = useFormContext();
-  const [fields, setFields] = useState<string[]>(['']);
+function WorkHeights ({ index }: {index: number }) {
+  const { setValue, getValues } = useFormContext()
+  const [fields, setFields] = useState<string[]>([''])
 
   const handleAppend = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    setFields(['', ...fields]);
+    e.preventDefault()
+    setFields(['', ...fields])
   }
 
   const handleChangeHighlight = (e: React.ChangeEvent<HTMLInputElement>, highlightIndex: number) => {
-    const value = e.target.value;
-    const highlights = getValues(`work.${index}.highlights`) || [];
-    highlights[highlightIndex] = value;
-    setValue(`work.${index}.highlights`, highlights);
+    const value = e.target.value
+    const highlights = getValues(`work.${index}.highlights`) || []
+    highlights[highlightIndex] = value
+    setValue(`work.${index}.highlights`, highlights)
   }
 
   return (
@@ -32,9 +31,9 @@ function WorkHeights({ index }: {index: number }){
   )
 }
 
-function Work(){
-  const { register } = useFormContext();
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'work' });
+function Work () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'work' })
 
   return (
     <>
@@ -58,4 +57,4 @@ function Work(){
   )
 }
 
-export default Work;
+export default Work

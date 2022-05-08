@@ -1,4 +1,4 @@
-import { IAwards, IBasics, ICertificates, IEducation, IInterests, ILanguages, IProjects, IPublications, IReferences, IResume, ISkills, IVolunteer, IWork } from "./interface"
+import { IAwards, IBasics, ICertificates, IEducation, IInterests, ILanguages, IProjects, IPublications, IReferences, IResume, ISkills, IVolunteer, IWork } from './interface'
 
 export const basicsDefaultValue: IBasics = {
   name: '',
@@ -30,17 +30,17 @@ export const educationDefaultValue: IEducation = {
   startDate: '',
   endDate: '',
   score: '',
-  courses: [''],
+  courses: ['']
 }
 
 export const workDefaultValue: IWork = {
-  name: '', 
+  name: '',
   position: '',
   url: '',
   startDate: '',
   endDate: '',
   summary: '',
-  highlights: [''],
+  highlights: ['']
 }
 
 export const volunteerDefaultValue: IVolunteer = {
@@ -57,14 +57,14 @@ export const awardsDefaultValue: IAwards = {
   title: '',
   date: '',
   awarder: '',
-  summary: '',
+  summary: ''
 }
 
 export const certificatesDefaultValue: ICertificates = {
   name: '',
   date: '',
   issuer: '',
-  url: '',
+  url: ''
 }
 
 export const publicationsDefaultValues: IPublications = {
@@ -72,28 +72,28 @@ export const publicationsDefaultValues: IPublications = {
   publisher: '',
   releaseDate: '',
   url: '',
-  summary: '',
+  summary: ''
 }
 
 export const skillsDefaultValues: ISkills = {
   name: '',
   level: '',
-  keywords: [''],
+  keywords: ['']
 }
 
 export const languagesDefaultValues: ILanguages = {
   language: '',
-  fluency: '',
+  fluency: ''
 }
 
 export const interestsDefaultValues: IInterests = {
   name: '',
-  keywords: [''],
+  keywords: ['']
 }
 
 export const referencesDefaultValues: IReferences = {
   name: '',
-  reference: '',
+  reference: ''
 }
 
 export const projectsDefaultValues: IProjects = {
@@ -106,7 +106,7 @@ export const projectsDefaultValues: IProjects = {
   url: '',
   roles: [''],
   entity: '',
-  type: '',
+  type: ''
 }
 
 export const resumeDefaultValues: IResume = {
@@ -121,5 +121,5 @@ export const resumeDefaultValues: IResume = {
   languages: [languagesDefaultValues],
   interests: interestsDefaultValues,
   references: [referencesDefaultValues],
-  projects: [projectsDefaultValues],
-} 
+  projects: [projectsDefaultValues]
+}
