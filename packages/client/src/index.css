@@ -37,21 +37,3 @@ textarea {
   width: 100%;
   margin-left: 1em;
 }
-
-button {
-  font-family: inherit;
-  font-size: 100%;
-  padding: .5em 1em;
-  border: 1px solid #0078e7;
-  background-color: transparent;
-  color: #0078e7;
-  text-decoration: none;
-  border-radius: 2px;
-  margin: 5px;
-}
-
-button:hover {
-  cursor:pointer;
-  background-color: #0078e7;
-  color: #fff;
-}

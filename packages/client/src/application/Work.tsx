@@ -40,7 +40,7 @@ function Work () {
       <h2>Work</h2>
       {fields.map((field: any, index: number) => (
         <div key={field.id}>
-          <Remove index={index} />
+          <Remove index={index} aria-label="remove work"/>
           <input placeholder="name" {...register(`work.${index}.name`)} />
           <input placeholder="position" {...register(`work.${index}.position`)} />
           <input placeholder="url" {...register(`work.${index}.url`)} />
@@ -52,7 +52,7 @@ function Work () {
         </div>
       ))}
 
-      <Append defaultValue={workDefaultValue} />
+      <Append defaultValue={workDefaultValue} aria-label="append work"/>
     </>
   )
 }

@@ -1,5 +1,6 @@
-import { ChangeEvent, MouseEvent, useState } from 'react'
+import { basicProfilesDefaultValue } from 'model/defaultValues'
 import { useFormContext } from 'react-hook-form'
+import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function Basics () {
   const { register } = useFormContext()
@@ -19,36 +20,26 @@ function Basics () {
       <input placeholder="Location.City" {...register('basics.location.city')} />
       <input placeholder="Location.CountryCode" {...register('basics.location.countryCode')} />
       <input placeholder="Location.Region" {...register('basics.location.region')} />
-      <HighLights />
-
+      <Profiles />
     </>
   )
 }
 
-function HighLights () {
-  const { setValue, getValues } = useFormContext()
-  const [fields, setFields] = useState<string[]>([''])
-
-  const handleAppend = (e: MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    setFields(['', ...fields])
-  }
-
-  const handleChangeHighlight = (e: ChangeEvent<HTMLInputElement>, highlightIndex: number) => {
-    const value = e.target.value
-    const courses = getValues('basics.profiles') || []
-    courses[highlightIndex] = value
-    setValue('basics.profiles', courses)
-  }
+function Profiles () {
+  const { register } = useFormContext()
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'basics.profiles' })
 
   return (
     <>
-      {fields.map((field: string, index: number) => (
-        <div key={index}>
-          <input placeholder="courses" onChange={(e) => handleChangeHighlight(e, index)} />
+      {fields.map((field: any, index: number) => (
+        <div key={field.id}>
+          <input placeholder="network" {...register(`basics.profiles.${index}.network`)} />
+          <input placeholder="username" {...register(`basics.profiles.${index}.username`)} />
+          <input placeholder="url" {...register(`basics.profiles.${index}.url`)}/>
+          <Remove index={index} aria-label="remove basic profiles" />
         </div>
       ))}
-      <button onClick={handleAppend}>+</button>
+      <Append defaultValue={basicProfilesDefaultValue} aria-label="append basic profiles" />
     </>
   )
 }

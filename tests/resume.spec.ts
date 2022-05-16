@@ -17,9 +17,9 @@ test.describe('Resume', () => {
   test('should delete and add work componenet', async ({ page }) => {
     const loc = page.locator('input[name="work\\.0\\.name"]')
     await expect(loc).toBeVisible()
-    await page.locator('text=X').nth(0).click()
+    await page.locator('[aria-label="remove work"]').click()
     await expect(loc).not.toBeVisible()
-    await page.locator('text=Add').nth(0).click()
+    await page.locator('[aria-label="append work"]').click()
     await expect(loc).toBeVisible()
   })
 

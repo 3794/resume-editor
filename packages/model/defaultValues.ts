@@ -1,5 +1,11 @@
 import { IAwards, IBasics, ICertificates, IEducation, IInterests, ILanguages, IProjects, IPublications, IReferences, IResume, ISkills, IVolunteer, IWork } from './interface'
 
+export const basicProfilesDefaultValue = {
+  network: '',
+  username: '',
+  url: ''
+}
+
 export const basicsDefaultValue: IBasics = {
   name: '',
   label: '',
@@ -15,11 +21,7 @@ export const basicsDefaultValue: IBasics = {
     countryCode: '',
     region: ''
   },
-  profiles: [{
-    network: '',
-    username: '',
-    url: ''
-  }]
+  profiles: [basicProfilesDefaultValue]
 }
 
 export const educationDefaultValue: IEducation = {
