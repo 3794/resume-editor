@@ -2,13 +2,3 @@
   width: 50em;
   margin: 0 auto;
 }
-
-.flex-end {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.flex-center {
-  display: flex;
-  justify-content: center;
-}

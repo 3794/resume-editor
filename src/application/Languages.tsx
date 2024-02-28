@@ -1,6 +1,9 @@
 import { languagesDefaultValues } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Title } from '@/components/ui/title'
+import FieldContainer from '@/components/ui/field-container'
+import { Input } from '@/components/ui/input'
 
 function Languages() {
   const { register } = useFormContext()
@@ -8,13 +11,13 @@ function Languages() {
 
   return (
     <>
-      <h2>Languages</h2>
+      <Title>Languages</Title>
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
           <Remove index={index} />
-          <input placeholder="language" {...register(`languages.${index}.language`)} />
-          <input placeholder="fluency" {...register(`languages.${index}.fluency`)} />
-        </div>
+          <Input placeholder="language" {...register(`languages.${index}.language`)} />
+          <Input placeholder="fluency" {...register(`languages.${index}.fluency`)} />
+        </FieldContainer>
       ))}
 
       <Append defaultValue={languagesDefaultValues} />

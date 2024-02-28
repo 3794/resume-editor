@@ -1,29 +1,30 @@
+import { Button } from '@/components/ui/button'
 import { useFieldArray, UseFieldArrayProps } from 'react-hook-form'
 
-function useFieldArrayUtils<T> (fildArrayProps: UseFieldArrayProps) {
+function useFieldArrayUtils<T>(fildArrayProps: UseFieldArrayProps) {
   const { fields, append, remove } = useFieldArray(fildArrayProps)
 
   const Remove = ({ index, ...rest }: { index: number, rest?: any[] }) => (
     <div style={{ float: 'right' }}>
-      <button
+      <Button
         type="button"
         onClick={() => remove(index)}
         {...rest}
       >
         X
-      </button>
+      </Button>
     </div>
   )
 
   const Append = ({ defaultValue, ...rest }: { defaultValue: T, rest?: any[] }) => (
-    <div className="flex-center">
-      <button
+    <div className="flex justify-center">
+      <Button
         type="button"
         onClick={() => append(defaultValue)}
         {...rest}
       >
         Add
-      </button>
+      </Button>
     </div>
   )
 

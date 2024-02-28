@@ -17,6 +17,7 @@ import Projects from './Projects'
 import './App.css'
 import { resumeDefaultValues } from '../model/defaultValues'
 import { IResume } from '../model/interface'
+import { Button } from '@/components/ui/button'
 
 function App() {
   const pdf = usePdfMake()
@@ -52,10 +53,8 @@ function App() {
     <div className="App">
       <FormProvider {...methods} >
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex-end">
-            <button type="submit">
-              Download PDF
-            </button>
+          <div className="flex justify-end">
+            <Button type="submit">Download PDF</Button>
           </div>
 
           <Basics />

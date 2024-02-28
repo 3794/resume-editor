@@ -1,14 +1,16 @@
 import { basicProfilesDefaultValue } from '../model/defaultValues'
-import { useFieldArray, useFormContext } from 'react-hook-form'
-import { Button } from '@/components/ui/button'
+import { useFormContext } from 'react-hook-form'
 import { Input } from '@/components/ui/input'
+import useFieldArrayUtils from '@/service/useFieldArrayUtils'
+import { Title } from '@/components/ui/title'
+import FieldContainer from '@/components/ui/field-container'
 
 function Basics() {
   const { register } = useFormContext()
 
   return (
     <>
-      <h2 className="text-2xl">Basics</h2>
+      <Title>Basics</Title>
 
       <div className="grid gap-2 mb-2">
         <Input placeholder="Name" {...register('basics.name')} />
@@ -31,27 +33,20 @@ function Basics() {
 
 function Profiles() {
   const { register } = useFormContext()
-  const { fields, remove, append } = useFieldArray({ name: 'basics.profiles' })
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'basics.profiles' })
 
 
   return (
     <>
       {fields.map((field: any, index: number) => (
-        <div key={field.id} className="grid gap-2">
+        <FieldContainer key={field.id}>
           <Input placeholder="network" {...register(`basics.profiles.${index}.network`)} />
           <Input placeholder="username" {...register(`basics.profiles.${index}.username`)} />
           <Input placeholder="url" {...register(`basics.profiles.${index}.url`)} />
-          {/* <Remove index={index} aria-label="remove basic profiles" /> */}
-          <Button type="button" onClick={() => remove(index)}>Remove</Button>
-        </div>
+          <Remove index={index} aria-label="remove basic profiles" />
+        </FieldContainer>
       ))}
-      <Button
-        type="button"
-        onClick={() => append(basicProfilesDefaultValue)}
-        aria-label="append basic profiles"
-      >
-        ADD
-      </Button>
+      <Append defaultValue={basicProfilesDefaultValue} aria-label="append basic profiles" />
     </>
   )
 }

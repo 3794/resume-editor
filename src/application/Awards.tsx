@@ -1,6 +1,9 @@
 import { awardsDefaultValue } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import FieldContainer from '@/components/ui/field-container'
+import { Input } from '@/components/ui/input'
+import { Title } from '@/components/ui/title'
 
 function Awards() {
   const { register } = useFormContext()
@@ -8,15 +11,15 @@ function Awards() {
 
   return (
     <>
-      <h2>Awards</h2>
+      <Title>Awards</Title>
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
           <Remove index={index} />
-          <input placeholder="title" {...register(`awards.${index}.title`)} />
-          <input placeholder="date" {...register(`awards.${index}.date`)} />
-          <input placeholder="awarder" {...register(`awards.${index}.awarder`)} />
-          <input placeholder="summary" {...register(`awards.${index}.summary`)} />
-        </div>
+          <Input placeholder="title" {...register(`awards.${index}.title`)} />
+          <Input placeholder="date" {...register(`awards.${index}.date`)} />
+          <Input placeholder="awarder" {...register(`awards.${index}.awarder`)} />
+          <Input placeholder="summary" {...register(`awards.${index}.summary`)} />
+        </FieldContainer>
       ))}
 
       <Append defaultValue={awardsDefaultValue} />

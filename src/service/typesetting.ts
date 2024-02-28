@@ -1,6 +1,6 @@
-import { IResume } from 'model/interface'
+import { IResume } from '../model/interface'
 
-export default function typesetting (values: IResume) {
+export default function typesetting(values: IResume) {
   const {
     basics,
     work, certificates

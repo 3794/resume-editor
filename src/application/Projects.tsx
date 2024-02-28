@@ -2,6 +2,9 @@ import { projectsDefaultValues } from '../model/defaultValues'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Title } from '@/components/ui/title'
+import FieldContainer from '@/components/ui/field-container'
+import { Input } from '@/components/ui/input'
 
 function HighLights({ index }: { index: number }) {
   const { setValue, getValues } = useFormContext()
@@ -23,7 +26,7 @@ function HighLights({ index }: { index: number }) {
     <>
       {fields.map((field: string, index: number) => (
         <div key={index}>
-          <input placeholder="highlights" onChange={(e) => handleChangeHighlight(e, index)} />
+          <Input placeholder="highlights" onChange={(e) => handleChangeHighlight(e, index)} />
         </div>
       ))}
       <button onClick={handleAppend}>+</button>
@@ -37,25 +40,25 @@ function Projects() {
 
   return (
     <>
-      <h2>Projects</h2>
+      <Title>Projects</Title>
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
           <Remove index={index} />
-          <input placeholder="name" {...register(`projects.${index}.name`)} />
-          <input placeholder="description" {...register(`projects.${index}.description`)} />
+          <Input placeholder="name" {...register(`projects.${index}.name`)} />
+          <Input placeholder="description" {...register(`projects.${index}.description`)} />
           <HighLights index={index} />
           <HighLights index={index} />
-          <input placeholder="startDate" {...register(`projects.${index}.startDate`)} />
-          <input placeholder="endDate" {...register(`projects.${index}.endDate`)} />
-          <input placeholder="url" {...register(`projects.${index}.url`)} />
+          <Input placeholder="startDate" {...register(`projects.${index}.startDate`)} />
+          <Input placeholder="endDate" {...register(`projects.${index}.endDate`)} />
+          <Input placeholder="url" {...register(`projects.${index}.url`)} />
           <HighLights index={index} />
-          <input placeholder="entity" {...register(`projects.${index}.entity`)} />
-          <input placeholder="type" {...register(`projects.${index}.type`)} />
+          <Input placeholder="entity" {...register(`projects.${index}.entity`)} />
+          <Input placeholder="type" {...register(`projects.${index}.type`)} />
 
-          <input type="hidden" {...register(`projects.${index}.highlights`)} />
-          <input type="hidden" {...register(`projects.${index}.keywords`)} />
-          <input type="hidden" {...register(`projects.${index}.roles`)} />
-        </div>
+          <Input type="hidden" {...register(`projects.${index}.highlights`)} />
+          <Input type="hidden" {...register(`projects.${index}.keywords`)} />
+          <Input type="hidden" {...register(`projects.${index}.roles`)} />
+        </FieldContainer>
       ))}
 
       <Append defaultValue={projectsDefaultValues} />

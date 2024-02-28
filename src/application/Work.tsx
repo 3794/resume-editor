@@ -2,6 +2,9 @@ import { workDefaultValue } from '../model/defaultValues'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Input } from '@/components/ui/input'
+import { Title } from '@/components/ui/title'
+import FieldContainer from '@/components/ui/field-container'
 
 function WorkHeights({ index }: { index: number }) {
   const { setValue, getValues } = useFormContext()
@@ -22,8 +25,8 @@ function WorkHeights({ index }: { index: number }) {
   return (
     <>
       {fields.map((field: string, index: number) => (
-        <div key={index}>
-          <input placeholder="highlights" onChange={(e) => handleChangeHighlight(e, index)} />
+        <div key={index} className="">
+          <Input placeholder="highlights" onChange={(e) => handleChangeHighlight(e, index)} />
         </div>
       ))}
       <button onClick={handleAppend}>+</button>
@@ -37,19 +40,25 @@ function Work() {
 
   return (
     <>
-      <h2>Work</h2>
+      <Title>Work</Title>
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
           <Remove index={index} aria-label="remove work" />
-          <input placeholder="name" {...register(`work.${index}.name`)} />
-          <input placeholder="position" {...register(`work.${index}.position`)} />
-          <input placeholder="url" {...register(`work.${index}.url`)} />
-          <input placeholder="startDate" {...register(`work.${index}.startDate`)} />
-          <input placeholder="endDate" {...register(`work.${index}.endDate`)} />
-          <input placeholder="summary" {...register(`work.${index}.summary`)} />
-          <input type="hidden" {...register(`work.${index}.highlights`)} />
+          <Input placeholder="name" {...register(`work.${index}.name`)} />
+          <Input placeholder="position" {...register(`work.${index}.position`)} />
+          <Input placeholder="url" {...register(`work.${index}.url`)} />
+          <div className="grid grid-cols-2 gap-2">
+            <div>
+              <Input placeholder="startDate" {...register(`work.${index}.startDate`)} />
+            </div>
+            <div>
+              <Input placeholder="endDate" {...register(`work.${index}.endDate`)} />
+            </div>
+          </div>
+          <Input placeholder="summary" {...register(`work.${index}.summary`)} />
+          <Input type="hidden" {...register(`work.${index}.highlights`)} />
           <WorkHeights index={index} />
-        </div>
+        </FieldContainer>
       ))}
 
       <Append defaultValue={workDefaultValue} aria-label="append work" />

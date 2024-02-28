@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { volunteerDefaultValue } from '../model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Title } from '@/components/ui/title'
+import FieldContainer from '@/components/ui/field-container'
+import { Input } from '@/components/ui/input'
 
 function HighLights({ index }: { index: number }) {
   const { setValue, getValues } = useFormContext()
@@ -23,7 +26,7 @@ function HighLights({ index }: { index: number }) {
     <>
       {fields.map((field: string, index: number) => (
         <div key={index}>
-          <input placeholder="keywords" onChange={(e) => handleChangeHighlight(e, index)} />
+          <Input placeholder="keywords" onChange={(e) => handleChangeHighlight(e, index)} />
         </div>
       ))}
       <button onClick={handleAppend}>+</button>
@@ -37,15 +40,15 @@ function Skills() {
 
   return (
     <>
-      <h2>Skills</h2>
+      <Title>Skills</Title>
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
           <Remove index={index} />
-          <input placeholder="name" {...register(`skills.${index}.name`)} />
-          <input placeholder="level" {...register(`skills.${index}.level`)} />
-          <input type="hidden" {...register(`skills.${index}.keywords`)} />
+          <Input placeholder="name" {...register(`skills.${index}.name`)} />
+          <Input placeholder="level" {...register(`skills.${index}.level`)} />
+          <Input type="hidden" {...register(`skills.${index}.keywords`)} />
           <HighLights index={index} />
-        </div>
+        </FieldContainer>
       ))}
 
       <Append defaultValue={volunteerDefaultValue} />

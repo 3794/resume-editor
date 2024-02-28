@@ -1,6 +1,9 @@
 import { referencesDefaultValues } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Title } from '@/components/ui/title'
+import FieldContainer from '@/components/ui/field-container'
+import { Input } from '@/components/ui/input'
 
 function References() {
   const { register } = useFormContext()
@@ -8,13 +11,13 @@ function References() {
 
   return (
     <>
-      <h2>References</h2>
+      <Title>References</Title>
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
           <Remove index={index} />
-          <input placeholder="name" {...register(`references.${index}.name`)} />
-          <input placeholder="reference" {...register(`references.${index}.reference`)} />
-        </div>
+          <Input placeholder="name" {...register(`references.${index}.name`)} />
+          <Input placeholder="reference" {...register(`references.${index}.reference`)} />
+        </FieldContainer>
       ))}
 
       <Append defaultValue={referencesDefaultValues} />

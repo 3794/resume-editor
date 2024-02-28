@@ -2,8 +2,11 @@ import { ChangeEvent, MouseEvent, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import { educationDefaultValue } from '../model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Input } from '@/components/ui/input'
+import FieldContainer from '@/components/ui/field-container'
+import { Title } from '@/components/ui/title'
 
-function HighLights ({ index }: {index: number }) {
+function HighLights({ index }: { index: number }) {
   const { setValue, getValues } = useFormContext()
   const [fields, setFields] = useState<string[]>([''])
 
@@ -23,7 +26,7 @@ function HighLights ({ index }: {index: number }) {
     <>
       {fields.map((field: string, index: number) => (
         <div key={index}>
-          <input placeholder="courses" onChange={(e) => handleChangeHighlight(e, index)} />
+          <Input placeholder="courses" onChange={(e) => handleChangeHighlight(e, index)} />
         </div>
       ))}
       <button onClick={handleAppend}>+</button>
@@ -31,30 +34,32 @@ function HighLights ({ index }: {index: number }) {
   )
 }
 
-function Education () {
+function Education() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'education' })
 
   return (
     <>
-      <h2>Education</h2>
+      <Title>Education</Title>
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
 
           <Remove index={index} />
 
-          <input placeholder="institution" {...register(`education.${index}.institution`)} />
-          <input placeholder="url" {...register(`education.${index}.url`)} />
-          <input placeholder="area" {...register(`education.${index}.area`)} />
-          <input placeholder="studyType" {...register(`education.${index}.studyType`)} />
-          <input placeholder="startDate" {...register(`education.${index}.startDate`)} />
-          <input placeholder="endDate" {...register(`education.${index}.endDate`)} />
-          <input placeholder="score" {...register(`education.${index}.score`)} />
+          <Input placeholder="institution" {...register(`education.${index}.institution`)} />
+          <Input placeholder="url" {...register(`education.${index}.url`)} />
+          <Input placeholder="area" {...register(`education.${index}.area`)} />
+          <Input placeholder="studyType" {...register(`education.${index}.studyType`)} />
+          <div className="grid grid-cols-2 gap-2">
+            <Input placeholder="startDate" {...register(`education.${index}.startDate`)} />
+            <Input placeholder="endDate" {...register(`education.${index}.endDate`)} />
+          </div>
+          <Input placeholder="score" {...register(`education.${index}.score`)} />
           <HighLights index={index} />
-        </div>
+        </FieldContainer>
       ))}
 
-      <Append defaultValue={educationDefaultValue}/>
+      <Append defaultValue={educationDefaultValue} />
     </>
   )
 }

@@ -1,6 +1,9 @@
 import { certificatesDefaultValue } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Title } from '@/components/ui/title'
+import FieldContainer from '@/components/ui/field-container'
+import { Input } from '@/components/ui/input'
 
 function Certificates() {
   const { register } = useFormContext()
@@ -8,15 +11,15 @@ function Certificates() {
 
   return (
     <>
-      <h2>Certificates</h2>
+      <Title>Certificates</Title>
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
           <Remove index={index} />
-          <input placeholder="name" {...register(`certificates.${index}.name`)} />
-          <input placeholder="date" {...register(`certificates.${index}.date`)} />
-          <input placeholder="issuer" {...register(`certificates.${index}.issuer`)} />
-          <input placeholder="url" {...register(`certificates.${index}.url`)} />
-        </div>
+          <Input placeholder="name" {...register(`certificates.${index}.name`)} />
+          <Input placeholder="date" {...register(`certificates.${index}.date`)} />
+          <Input placeholder="issuer" {...register(`certificates.${index}.issuer`)} />
+          <Input placeholder="url" {...register(`certificates.${index}.url`)} />
+        </FieldContainer>
       ))}
 
       <Append defaultValue={certificatesDefaultValue} />

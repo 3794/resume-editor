@@ -1,7 +1,10 @@
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Title } from '@/components/ui/title'
+import FieldContainer from '@/components/ui/field-container'
+import { Input } from '@/components/ui/input'
 
-function Interests () {
+function Interests() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'interests.keywords' })
   const profilesDefaultValue = {
@@ -10,19 +13,19 @@ function Interests () {
 
   return (
     <>
-      <h2>Interests</h2>
-      <input placeholder="Name" {...register('interests.name')} />
+      <Title>Interests</Title>
+      <Input placeholder="Name" {...register('interests.name')} />
 
       {fields.map((field: any, index: number) => (
-        <div key={field.id}>
+        <FieldContainer key={field.id}>
 
           <Remove index={index} />
 
-          <input placeholder="keywords" {...register(`interests.${index}.keywords`)} />
-        </div>
+          <Input placeholder="keywords" {...register(`interests.${index}.keywords`)} />
+        </FieldContainer>
       ))}
 
-      <Append defaultValue={profilesDefaultValue}/>
+      <Append defaultValue={profilesDefaultValue} />
     </>
   )
 }
