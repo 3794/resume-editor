@@ -1,9 +1,9 @@
-import { workDefaultValue } from 'model/defaultValues'
+import { workDefaultValue } from '../model/defaultValues'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function WorkHeights ({ index }: {index: number }) {
+function WorkHeights({ index }: { index: number }) {
   const { setValue, getValues } = useFormContext()
   const [fields, setFields] = useState<string[]>([''])
 
@@ -31,7 +31,7 @@ function WorkHeights ({ index }: {index: number }) {
   )
 }
 
-function Work () {
+function Work() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'work' })
 
@@ -40,7 +40,7 @@ function Work () {
       <h2>Work</h2>
       {fields.map((field: any, index: number) => (
         <div key={field.id}>
-          <Remove index={index} aria-label="remove work"/>
+          <Remove index={index} aria-label="remove work" />
           <input placeholder="name" {...register(`work.${index}.name`)} />
           <input placeholder="position" {...register(`work.${index}.position`)} />
           <input placeholder="url" {...register(`work.${index}.url`)} />
@@ -52,7 +52,7 @@ function Work () {
         </div>
       ))}
 
-      <Append defaultValue={workDefaultValue} aria-label="append work"/>
+      <Append defaultValue={workDefaultValue} aria-label="append work" />
     </>
   )
 }

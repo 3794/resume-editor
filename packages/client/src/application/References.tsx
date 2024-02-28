@@ -1,8 +1,8 @@
-import { referencesDefaultValues } from 'model/defaultValues'
+import { referencesDefaultValues } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function References () {
+function References() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'references' })
 

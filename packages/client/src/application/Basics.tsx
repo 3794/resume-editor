@@ -1,8 +1,8 @@
-import { basicProfilesDefaultValue } from 'model/defaultValues'
+import { basicProfilesDefaultValue } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Basics () {
+function Basics() {
   const { register } = useFormContext()
 
   return (
@@ -25,7 +25,7 @@ function Basics () {
   )
 }
 
-function Profiles () {
+function Profiles() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'basics.profiles' })
 
@@ -35,7 +35,7 @@ function Profiles () {
         <div key={field.id}>
           <input placeholder="network" {...register(`basics.profiles.${index}.network`)} />
           <input placeholder="username" {...register(`basics.profiles.${index}.username`)} />
-          <input placeholder="url" {...register(`basics.profiles.${index}.url`)}/>
+          <input placeholder="url" {...register(`basics.profiles.${index}.url`)} />
           <Remove index={index} aria-label="remove basic profiles" />
         </div>
       ))}

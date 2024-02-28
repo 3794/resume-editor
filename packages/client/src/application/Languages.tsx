@@ -1,8 +1,8 @@
-import { languagesDefaultValues } from 'model/defaultValues'
+import { languagesDefaultValues } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Languages () {
+function Languages() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'languages' })
 

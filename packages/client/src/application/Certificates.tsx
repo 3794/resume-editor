@@ -1,8 +1,8 @@
-import { certificatesDefaultValue } from 'model/defaultValues'
+import { certificatesDefaultValue } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Certificates () {
+function Certificates() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'certificates' })
 

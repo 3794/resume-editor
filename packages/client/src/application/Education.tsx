@@ -1,6 +1,6 @@
 import { ChangeEvent, MouseEvent, useState } from 'react'
 import { useFormContext } from 'react-hook-form'
-import { educationDefaultValue } from 'model/defaultValues'
+import { educationDefaultValue } from '../model/defaultValues'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
 function HighLights ({ index }: {index: number }) {

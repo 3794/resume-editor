@@ -1,8 +1,8 @@
-import { publicationsDefaultValues } from 'model/defaultValues'
+import { publicationsDefaultValues } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Publications () {
+function Publications() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'publications' })
 

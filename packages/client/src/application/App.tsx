@@ -15,10 +15,10 @@ import Interests from './Interests'
 import References from './References'
 import Projects from './Projects'
 import './App.css'
-import { resumeDefaultValues } from 'model/defaultValues'
-import { IResume } from 'model/interface'
+import { resumeDefaultValues } from '../model/defaultValues'
+import { IResume } from '../model/interface'
 
-function App () {
+function App() {
   const pdf = usePdfMake()
 
   const methods = useForm<IResume>({

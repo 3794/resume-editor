@@ -1,8 +1,8 @@
-import { awardsDefaultValue } from 'model/defaultValues'
+import { awardsDefaultValue } from '../model/defaultValues'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function Awards () {
+function Awards() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'awards' })
 

@@ -1,9 +1,9 @@
-import { volunteerDefaultValue } from 'model/defaultValues'
+import { volunteerDefaultValue } from '../model/defaultValues'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
 
-function HighLights ({ index }: {index: number }) {
+function HighLights({ index }: { index: number }) {
   const { setValue, getValues } = useFormContext()
   const [fields, setFields] = useState<string[]>([''])
 
@@ -31,7 +31,7 @@ function HighLights ({ index }: {index: number }) {
   )
 }
 
-function Volunteer () {
+function Volunteer() {
   const { register } = useFormContext()
   const { fields, Remove, Append } = useFieldArrayUtils({ name: 'volunteer' })
 
