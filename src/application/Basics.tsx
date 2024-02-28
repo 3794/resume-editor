@@ -1,6 +1,7 @@
 import { basicProfilesDefaultValue } from '../model/defaultValues'
-import { useFormContext } from 'react-hook-form'
+import { useFieldArray, useFormContext } from 'react-hook-form'
 import useFieldArrayUtils from '../service/useFieldArrayUtils'
+import { Button } from '@/components/ui/button'
 
 function Basics() {
   const { register } = useFormContext()
@@ -27,7 +28,9 @@ function Basics() {
 
 function Profiles() {
   const { register } = useFormContext()
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'basics.profiles' })
+  // const { fields, Remove, Append } = useFieldArrayUtils({ name: 'basics.profiles' })
+  const { fields, remove, append } = useFieldArray({ name: 'basics.profiles' })
+
 
   return (
     <>
@@ -36,10 +39,12 @@ function Profiles() {
           <input placeholder="network" {...register(`basics.profiles.${index}.network`)} />
           <input placeholder="username" {...register(`basics.profiles.${index}.username`)} />
           <input placeholder="url" {...register(`basics.profiles.${index}.url`)} />
-          <Remove index={index} aria-label="remove basic profiles" />
+          {/* <Remove index={index} aria-label="remove basic profiles" /> */}
+          <Button type="button" onClick={() => remove()}>Remove</Button>
         </div>
       ))}
-      <Append defaultValue={basicProfilesDefaultValue} aria-label="append basic profiles" />
+      <Button type="button" onClick={() => append(undefined)}>ADD</Button>
+      {/* <Append defaultValue={basicProfilesDefaultValue} aria-label="append basic profiles" /> */}
     </>
   )
 }
