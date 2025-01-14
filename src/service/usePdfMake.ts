@@ -1,5 +1,6 @@
 // @ts-nocheck
-import pdfmake from 'pdfmake'
+import { ContentElement } from "@/model/interface";
+import pdfmake from "pdfmake";
 
 // pdfmake.fonts = {
 //   // download default Roboto font from cdnjs.com
@@ -14,54 +15,57 @@ import pdfmake from 'pdfmake'
 pdfmake.fonts = {
   // download default Roboto font from cdnjs.com
   Roboto: {
-    normal: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf',
-    bold: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf',
-    italics: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf',
-    bolditalics: 'https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf'
-  }
-}
+    normal:
+      "https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf",
+    bold: "https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf",
+    italics:
+      "https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf",
+    bolditalics:
+      "https://cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf",
+  },
+};
 
-function usePdfMake () {
+function usePdfMake() {
   return {
-    createPdf (content: any[]) {
+    createPdf(content: ContentElement[]) {
       return pdfmake.createPdf({
         content,
         styles: {
           h1: {
             fontSize: 20,
             bold: true,
-            margin: [0, 0, 0, 10]
+            margin: [0, 0, 0, 10],
           },
           h2: {
             fontSize: 18,
             bold: true,
-            margin: [0, 15, 0, 10]
+            margin: [0, 15, 0, 10],
           },
           h3: {
             fontSize: 15,
             bold: true,
-            margin: [0, 10, 0, 8]
+            margin: [0, 10, 0, 8],
           },
           h4: {
             fontSize: 13,
             bold: true,
-            margin: [0, 5, 0, 5]
+            margin: [0, 5, 0, 5],
           },
           br: {
-            margin: [0, 0, 0, 20]
+            margin: [0, 0, 0, 20],
           },
           superMargin: {
-            margin: [10, 0, 0, 20]
+            margin: [10, 0, 0, 20],
           },
           tableHeader: {
             bold: true,
             fontSize: 13,
-            color: 'black'
-          }
-        }
-      })
-    }
-  }
+            color: "black",
+          },
+        },
+      });
+    },
+  };
 }
 
-export default usePdfMake
+export default usePdfMake;

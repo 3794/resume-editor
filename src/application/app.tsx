@@ -1,7 +1,7 @@
 import { useState } from "react";
 import JSONEditor from "../components/JSONEditor";
-import { Button } from "@/components/ui/button";
 import Form from "./form";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 enum Tab {
   FORM,
@@ -14,12 +14,16 @@ export default function App() {
   return (
     <div className="h-full flex flex-col">
       <div className="flex">
-        <Button type="button" onClick={() => setTab(Tab.FORM)}>
-          Form
-        </Button>
-        <Button type="button" onClick={() => setTab(Tab.JSON)}>
-          JSON
-        </Button>
+        <Tabs defaultValue="FORM" className="w-[400px]">
+          <TabsList>
+            <TabsTrigger value="FORM" onClick={() => setTab(Tab.FORM)}>
+              Form
+            </TabsTrigger>
+            <TabsTrigger value="JSON" onClick={() => setTab(Tab.JSON)}>
+              JSON
+            </TabsTrigger>
+          </TabsList>
+        </Tabs>
       </div>
       {tab === Tab.FORM ? <Form /> : <JSONEditor />}
     </div>

@@ -1,17 +1,12 @@
-import React from "react"
+import React from "react";
 
 type Props = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-const Title =
-  ({ children }: Props) => {
-    return (
-      <h2 className="text-2xl">
-        {children}
-      </h2>
-    )
-  }
-Title.displayName = "Title"
+const Title = ({ children }: Props) => {
+  return <h2 className="text-2xl">{children}</h2>;
+};
+Title.displayName = "Title";
 
-export { Title }
+export { Title };

@@ -1,36 +1,30 @@
-import { Button } from '@/components/ui/button'
-import { useFieldArray, UseFieldArrayProps } from 'react-hook-form'
+import { Button } from "@/components/ui/button";
+import { useFieldArray, UseFieldArrayProps } from "react-hook-form";
 
 function useFieldArrayUtils<T>(fildArrayProps: UseFieldArrayProps) {
-  const { fields, append, remove } = useFieldArray(fildArrayProps)
+  const { fields, append, remove } = useFieldArray(fildArrayProps);
 
-  const Remove = ({ index, ...rest }: { index: number, rest?: any[] }) => (
-    <div style={{ float: 'right' }}>
-      <Button
-        type="button"
-        onClick={() => remove(index)}
-        {...rest}
-      >
+  const Remove = ({ index, ...rest }: { index: number }) => (
+    <div style={{ float: "right" }}>
+      <Button type="button" onClick={() => remove(index)} {...rest}>
         X
       </Button>
     </div>
-  )
+  );
 
-  const Append = ({ defaultValue, ...rest }: { defaultValue: T, rest?: any[] }) => (
+  const Append = ({ defaultValue, ...rest }: { defaultValue: T }) => (
     <div className="flex justify-center">
-      <Button
-        type="button"
-        onClick={() => append(defaultValue)}
-        {...rest}
-      >
+      <Button type="button" onClick={() => append(defaultValue)} {...rest}>
         Add
       </Button>
     </div>
-  )
+  );
 
   return {
-    fields, Remove, Append
-  }
+    fields,
+    Remove,
+    Append,
+  };
 }
 
-export default useFieldArrayUtils
+export default useFieldArrayUtils;

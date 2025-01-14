@@ -1,10 +1,11 @@
 import { workDefaultValue } from "../model/defaultValues";
 import React, { useState } from "react";
-import { useFormContext } from "react-hook-form";
+import { FieldArrayWithId, useFormContext } from "react-hook-form";
 import useFieldArrayUtils from "../service/useFieldArrayUtils";
 import { Input } from "@/components/ui/input";
 import { Title } from "@/components/ui/title";
 import FieldContainer from "@/components/ui/field-container";
+import { IWork } from "@/model/interface";
 
 function WorkHeights({ index }: { index: number }) {
   const { setValue, getValues } = useFormContext();
@@ -47,7 +48,7 @@ function Work() {
   return (
     <>
       <Title>Work</Title>
-      {fields.map((field: any, index: number) => (
+      {fields.map((field: FieldArrayWithId<IWork>, index: number) => (
         <FieldContainer key={field.id}>
           <Remove index={index} aria-label="remove work" />
           <Input placeholder="name" {...register(`work.${index}.name`)} />

@@ -1,58 +1,77 @@
-import { projectsDefaultValues } from '../model/defaultValues'
-import React, { useState } from 'react'
-import { useFormContext } from 'react-hook-form'
-import useFieldArrayUtils from '../service/useFieldArrayUtils'
-import { Title } from '@/components/ui/title'
-import FieldContainer from '@/components/ui/field-container'
-import { Input } from '@/components/ui/input'
+import { projectsDefaultValues } from "../model/defaultValues";
+import React, { useState } from "react";
+import { FieldArrayWithId, useFormContext } from "react-hook-form";
+import useFieldArrayUtils from "../service/useFieldArrayUtils";
+import { Title } from "@/components/ui/title";
+import FieldContainer from "@/components/ui/field-container";
+import { Input } from "@/components/ui/input";
+import { IProjects } from "@/model/interface";
 
 function HighLights({ index }: { index: number }) {
-  const { setValue, getValues } = useFormContext()
-  const [fields, setFields] = useState<string[]>([''])
+  const { setValue, getValues } = useFormContext();
+  const [fields, setFields] = useState<string[]>([""]);
 
   const handleAppend = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    setFields(['', ...fields])
-  }
+    e.preventDefault();
+    setFields(["", ...fields]);
+  };
 
-  const handleChangeHighlight = (e: React.ChangeEvent<HTMLInputElement>, highlightIndex: number) => {
-    const value = e.target.value
-    const highlights = getValues(`volunteer.${index}.highlights`) || []
-    highlights[highlightIndex] = value
-    setValue(`volunteer.${index}.highlights`, highlights)
-  }
+  const handleChangeHighlight = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    highlightIndex: number
+  ) => {
+    const value = e.target.value;
+    const highlights = getValues(`volunteer.${index}.highlights`) || [];
+    highlights[highlightIndex] = value;
+    setValue(`volunteer.${index}.highlights`, highlights);
+  };
 
   return (
     <>
-      {fields.map((field: string, index: number) => (
+      {fields.map((_: string, index: number) => (
         <div key={index}>
-          <Input placeholder="highlights" onChange={(e) => handleChangeHighlight(e, index)} />
+          <Input
+            placeholder="highlights"
+            onChange={(e) => handleChangeHighlight(e, index)}
+          />
         </div>
       ))}
       <button onClick={handleAppend}>+</button>
     </>
-  )
+  );
 }
 
 function Projects() {
-  const { register } = useFormContext()
-  const { fields, Remove, Append } = useFieldArrayUtils({ name: 'projects' })
+  const { register } = useFormContext();
+  const { fields, Remove, Append } = useFieldArrayUtils({ name: "projects" });
 
   return (
     <>
       <Title>Projects</Title>
-      {fields.map((field: any, index: number) => (
+      {fields.map((field: FieldArrayWithId<IProjects>, index: number) => (
         <FieldContainer key={field.id}>
           <Remove index={index} />
           <Input placeholder="name" {...register(`projects.${index}.name`)} />
-          <Input placeholder="description" {...register(`projects.${index}.description`)} />
+          <Input
+            placeholder="description"
+            {...register(`projects.${index}.description`)}
+          />
           <HighLights index={index} />
           <HighLights index={index} />
-          <Input placeholder="startDate" {...register(`projects.${index}.startDate`)} />
-          <Input placeholder="endDate" {...register(`projects.${index}.endDate`)} />
+          <Input
+            placeholder="startDate"
+            {...register(`projects.${index}.startDate`)}
+          />
+          <Input
+            placeholder="endDate"
+            {...register(`projects.${index}.endDate`)}
+          />
           <Input placeholder="url" {...register(`projects.${index}.url`)} />
           <HighLights index={index} />
-          <Input placeholder="entity" {...register(`projects.${index}.entity`)} />
+          <Input
+            placeholder="entity"
+            {...register(`projects.${index}.entity`)}
+          />
           <Input placeholder="type" {...register(`projects.${index}.type`)} />
 
           <Input type="hidden" {...register(`projects.${index}.highlights`)} />
@@ -63,7 +82,7 @@ function Projects() {
 
       <Append defaultValue={projectsDefaultValues} />
     </>
-  )
+  );
 }
 
-export default Projects
+export default Projects;
