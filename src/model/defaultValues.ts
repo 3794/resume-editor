@@ -1,115 +1,129 @@
-import { IAwards, IBasics, ICertificates, IEducation, IInterests, ILanguages, IProjects, IPublications, IReferences, IResume, ISkills, IVolunteer, IWork } from './interface'
+import {
+  IAwards,
+  IBasics,
+  ICertificates,
+  IEducation,
+  IInterests,
+  ILanguages,
+  IProjects,
+  IPublications,
+  IReferences,
+  IResume,
+  ISkills,
+  IVolunteer,
+  IWork,
+} from "./interface";
 
 export const basicProfilesDefaultValue = {
-  network: '',
-  username: '',
-  url: ''
-}
+  network: "",
+  username: "",
+  url: "",
+};
 
 export const basicsDefaultValue: IBasics = {
-  name: '',
-  label: '',
-  image: '',
-  email: '',
-  phone: '',
-  url: '',
-  summary: '',
+  name: "",
+  label: "",
+  image: "",
+  email: "",
+  phone: "",
+  url: "",
+  summary: "",
   location: {
-    address: '',
-    postalCode: '',
-    city: '',
-    countryCode: '',
-    region: ''
+    address: "",
+    postalCode: "",
+    city: "",
+    countryCode: "",
+    region: "",
   },
-  profiles: [basicProfilesDefaultValue]
-}
+  profiles: [basicProfilesDefaultValue],
+};
 
 export const educationDefaultValue: IEducation = {
-  institution: '',
-  url: '',
-  area: '',
-  studyType: '',
-  startDate: '',
-  endDate: '',
-  score: '',
-  courses: ['']
-}
+  institution: "",
+  url: "",
+  area: "",
+  studyType: "",
+  startDate: "",
+  endDate: "",
+  score: "",
+  courses: [""],
+};
 
 export const workDefaultValue: IWork = {
-  name: '',
-  position: '',
-  url: '',
-  startDate: '',
-  endDate: '',
-  summary: '',
-  highlights: ['']
-}
+  name: "",
+  position: "",
+  url: "",
+  startDate: "",
+  endDate: "",
+  summary: "",
+  highlights: [""],
+};
 
 export const volunteerDefaultValue: IVolunteer = {
-  organization: '',
-  position: '',
-  url: '',
-  startDate: '',
-  endDate: '',
-  summary: '',
-  highlights: ['']
-}
+  organization: "",
+  position: "",
+  url: "",
+  startDate: "",
+  endDate: "",
+  summary: "",
+  highlights: [""],
+};
 
 export const awardsDefaultValue: IAwards = {
-  title: '',
-  date: '',
-  awarder: '',
-  summary: ''
-}
+  title: "",
+  date: "",
+  awarder: "",
+  summary: "",
+};
 
 export const certificatesDefaultValue: ICertificates = {
-  name: '',
-  date: '',
-  issuer: '',
-  url: ''
-}
+  name: "",
+  date: "",
+  issuer: "",
+  url: "",
+};
 
 export const publicationsDefaultValues: IPublications = {
-  name: '',
-  publisher: '',
-  releaseDate: '',
-  url: '',
-  summary: ''
-}
+  name: "",
+  publisher: "",
+  releaseDate: "",
+  url: "",
+  summary: "",
+};
 
 export const skillsDefaultValues: ISkills = {
-  name: '',
-  level: '',
-  keywords: ['']
-}
+  name: "",
+  level: "",
+  keywords: [""],
+};
 
 export const languagesDefaultValues: ILanguages = {
-  language: '',
-  fluency: ''
-}
+  language: "",
+  fluency: "",
+};
 
 export const interestsDefaultValues: IInterests = {
-  name: '',
-  keywords: ['']
-}
+  name: "",
+  keywords: [""],
+};
 
 export const referencesDefaultValues: IReferences = {
-  name: '',
-  reference: ''
-}
+  name: "",
+  reference: "",
+};
 
 export const projectsDefaultValues: IProjects = {
-  name: '',
-  description: '',
-  highlights: [''],
-  keywords: [''],
-  startDate: '',
-  endDate: '',
-  url: '',
-  roles: [''],
-  entity: '',
-  type: ''
-}
+  name: "",
+  description: "",
+  highlights: [""],
+  keywords: [""],
+  startDate: "",
+  endDate: "",
+  url: "",
+  roles: [""],
+  entity: "",
+  type: "",
+};
 
 export const resumeDefaultValues: IResume = {
   basics: basicsDefaultValue,
@@ -123,5 +137,5 @@ export const resumeDefaultValues: IResume = {
   languages: [languagesDefaultValues],
   interests: interestsDefaultValues,
   references: [referencesDefaultValues],
-  projects: [projectsDefaultValues]
-}
+  projects: [projectsDefaultValues],
+};
