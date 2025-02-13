@@ -28,7 +28,7 @@ function HighLights({ index }: { index: number }) {
 
   return (
     <>
-      {fields.map((field: string, index: number) => (
+      {fields.map((_: string, index: number) => (
         <div key={index}>
           <Input
             placeholder="highlights"
