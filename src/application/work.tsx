@@ -71,7 +71,11 @@ function Work() {
               />
             </div>
           </div>
-          <Input placeholder="summary" {...register(`work.${index}.summary`)} />
+          <textarea
+            className="w-full p-1 border border-gray-300 rounded-md"
+            placeholder="summary"
+            {...register(`work.${index}.summary`)}
+          />
           <Input type="hidden" {...register(`work.${index}.highlights`)} />
           <WorkHeights index={index} />
         </FieldContainer>

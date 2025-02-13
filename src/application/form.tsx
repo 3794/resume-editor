@@ -1,6 +1,4 @@
 import { FormProvider, SubmitHandler, useForm } from "react-hook-form";
-import typesetting from "../service/typesetting";
-import usePdfMake from "../service/usePdfMake";
 import Certificates from "./certificates";
 import Education from "./education";
 import Basics from "./basics";
@@ -18,9 +16,10 @@ import { Button } from "@/components/ui/button";
 import { useEffect, useSyncExternalStore } from "react";
 import { resumeStore } from "../store/resumeStore";
 import Activities from "./activities";
-export default function Form() {
-  const pdf = usePdfMake();
+import { usePDF } from "@react-pdf/renderer";
+import { MyDocument } from "@/service/typesetting";
 
+export default function Form() {
   const resumeData = useSyncExternalStore(
     resumeStore.subscribe,
     resumeStore.getSnapshot
@@ -31,18 +30,48 @@ export default function Form() {
   });
 
   const { handleSubmit, watch } = methods;
+  const [instance, update] = usePDF({
+    document: <MyDocument {...resumeData} />,
+  });
+
+  const handleDownloadJson = () => {
+    const jsonString = JSON.stringify(resumeData, null, 2);
+    const blob = new Blob([jsonString], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = "resume.json";
+
+    document.body.appendChild(link);
+    link.click();
+
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
+
+  const onSubmit: SubmitHandler<IResume> = (data) => {
+    if (instance.url) {
+      const link = document.createElement("a");
+      link.href = instance.url;
+      link.download = "resume.pdf";
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    // handleDownloadJson();
+  };
 
   // Subscribe to form changes and update store
   useEffect(() => {
     const subscription = watch((value) => {
-      resumeStore.update(value as IResume);
+      const v = value as IResume;
+      resumeStore.update(v);
+      update(<MyDocument {...v} />);
     });
     return () => subscription.unsubscribe();
   }, [watch]);
-
-  const onSubmit: SubmitHandler<IResume> = (data) => {
-    pdf.createPdf(typesetting(data)).download();
-  };
 
   return (
     <div className="p-10">
