@@ -120,21 +120,19 @@ export const MyDocument = (values: IResume) => {
           }
         )}
         <Text style={styles.sectionTitle}>교육</Text>
-        {education.map(
-          ({ institution, area, studyType, startDate, endDate }, index) => {
-            return (
-              <View style={styles.section} key={`${institution}-${index}`}>
-                <Text>{institution}</Text>
-                <View>
-                  <Text>{area}</Text>
-                  <Text>{`${startDate} ~ ${endDate}`}</Text>
-                </View>
+        {education.map(({ institution, area, startDate, endDate }, index) => {
+          return (
+            <View style={styles.section} key={`${institution}-${index}`}>
+              <Text>{institution}</Text>
+              <View>
+                <Text>{area}</Text>
+                <Text>{`${startDate} ~ ${endDate}`}</Text>
               </View>
-            );
-          }
-        )}
+            </View>
+          );
+        })}
         <Text style={styles.sectionTitle}>자격증</Text>
-        {certificates.map(({ name, date, issuer, url }, index) => {
+        {certificates.map(({ name, date }, index) => {
           return (
             <View style={styles.section} key={`${name}-${index}`}>
               <Text>{name}</Text>

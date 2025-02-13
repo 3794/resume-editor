@@ -34,23 +34,23 @@ export default function Form() {
     document: <MyDocument {...resumeData} />,
   });
 
-  const handleDownloadJson = () => {
-    const jsonString = JSON.stringify(resumeData, null, 2);
-    const blob = new Blob([jsonString], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
+  // const handleDownloadJson = () => {
+  //   const jsonString = JSON.stringify(resumeData, null, 2);
+  //   const blob = new Blob([jsonString], { type: "application/json" });
+  //   const url = URL.createObjectURL(blob);
 
-    const link = document.createElement("a");
-    link.href = url;
-    link.download = "resume.json";
+  //   const link = document.createElement("a");
+  //   link.href = url;
+  //   link.download = "resume.json";
 
-    document.body.appendChild(link);
-    link.click();
+  //   document.body.appendChild(link);
+  //   link.click();
 
-    document.body.removeChild(link);
-    URL.revokeObjectURL(url);
-  };
+  //   document.body.removeChild(link);
+  //   URL.revokeObjectURL(url);
+  // };
 
-  const onSubmit: SubmitHandler<IResume> = (data) => {
+  const onSubmit: SubmitHandler<IResume> = () => {
     if (instance.url) {
       const link = document.createElement("a");
       link.href = instance.url;
