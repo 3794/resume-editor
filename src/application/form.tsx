@@ -17,7 +17,7 @@ import { IResume } from "../model/interface";
 import { Button } from "@/components/ui/button";
 import { useEffect, useSyncExternalStore } from "react";
 import { resumeStore } from "../store/resumeStore";
-
+import Activities from "./activities";
 export default function Form() {
   const pdf = usePdfMake();
 
@@ -58,6 +58,7 @@ export default function Form() {
           <Awards />
           <Certificates />
           <Publications />
+          <Activities />
           <Skills />
           <Languages />
           <Interests />

@@ -12,6 +12,7 @@ import {
   ISkills,
   IVolunteer,
   IWork,
+  IActivity,
 } from "./interface";
 
 export const basicProfilesDefaultValue = {
@@ -91,6 +92,11 @@ export const publicationsDefaultValues: IPublications = {
   summary: "",
 };
 
+export const activitiesDefaultValues: IActivity = {
+  summary: "",
+  url: "",
+};
+
 export const skillsDefaultValues: ISkills = {
   name: "",
   level: "",
@@ -138,4 +144,5 @@ export const resumeDefaultValues: IResume = {
   interests: interestsDefaultValues,
   references: [referencesDefaultValues],
   projects: [projectsDefaultValues],
+  activities: [activitiesDefaultValues],
 };

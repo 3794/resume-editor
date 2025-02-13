@@ -74,6 +74,11 @@ export interface IPublications {
   summary: string; // "Description…"
 }
 
+export interface IActivity {
+  summary: string; // "Description…"
+  url: string; // "https://publication.com",
+}
+
 export interface ISkills {
   name: string; // "Web Development",
   level: string; // "Master",
@@ -121,6 +126,7 @@ export interface IResume {
   interests: IInterests;
   references: IReferences[];
   projects: IProjects[];
+  activities: IActivity[];
 }
 
 export type ContentElement =

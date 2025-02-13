@@ -1,7 +1,7 @@
 import { ContentElement, IResume } from "../model/interface";
 
 export default function typesetting(values: IResume): ContentElement[] {
-  const { basics, work, certificates, education } = values;
+  const { basics, work, certificates, education, activities } = values;
 
   const educations = education.reduce(
     (prev: any[], { institution, area, studyType, startDate, endDate }) => {
@@ -14,7 +14,6 @@ export default function typesetting(values: IResume): ContentElement[] {
             { text: `${startDate} ~ ${endDate}`, style: "span" },
             { text: "", style: "br" },
           ],
-          style: "superMargin",
         },
       ];
     },
@@ -44,6 +43,10 @@ export default function typesetting(values: IResume): ContentElement[] {
     return [...prev, name, date, { text: "", style: "br" }];
   }, []);
 
+  const _activities = activities.reduce((prev: any[], { summary, url }) => {
+    return [...prev, summary, url, { text: "", style: "br" }];
+  }, []);
+
   return [
     { text: basics.name, style: "h1" },
     basics.email,
@@ -60,5 +63,8 @@ export default function typesetting(values: IResume): ContentElement[] {
     { text: "", style: "br" },
     { text: "자격증", style: "h2" },
     _certificates,
+    { text: "", style: "br" },
+    { text: "활동", style: "h2" },
+    _activities,
   ];
 }
