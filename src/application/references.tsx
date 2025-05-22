@@ -6,7 +6,7 @@ import FieldContainer from "@/components/ui/field-container";
 import { Input } from "@/components/ui/input";
 import { IReferences } from "@/model/interface";
 
-function References() {
+export default function References() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({ name: "references" });
 
@@ -28,5 +28,3 @@ function References() {
     </>
   );
 }
-
-export default References;

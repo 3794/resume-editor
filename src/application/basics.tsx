@@ -6,7 +6,7 @@ import { Title } from "@/components/ui/title";
 import FieldContainer from "@/components/ui/field-container";
 import { IProfiles } from "@/model/interface";
 
-function Basics() {
+export default function Basics() {
   const { register } = useFormContext();
 
   return (
@@ -79,5 +79,3 @@ function Profiles() {
     </>
   );
 }
-
-export default Basics;

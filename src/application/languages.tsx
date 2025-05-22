@@ -6,7 +6,7 @@ import FieldContainer from "@/components/ui/field-container";
 import { Input } from "@/components/ui/input";
 import { ILanguages } from "@/model/interface";
 
-function Languages() {
+export default function Languages() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({ name: "languages" });
 
@@ -31,5 +31,3 @@ function Languages() {
     </>
   );
 }
-
-export default Languages;

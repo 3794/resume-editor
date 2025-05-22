@@ -1,7 +1,9 @@
 import { Button } from "@/components/ui/button";
 import { useFieldArray, UseFieldArrayProps } from "react-hook-form";
 
-function useFieldArrayUtils<T>(fildArrayProps: UseFieldArrayProps) {
+export default function useFieldArrayUtils<T>(
+  fildArrayProps: UseFieldArrayProps
+) {
   const { fields, append, remove } = useFieldArray(fildArrayProps);
 
   const Remove = ({ index, ...rest }: { index: number }) => (
@@ -26,5 +28,3 @@ function useFieldArrayUtils<T>(fildArrayProps: UseFieldArrayProps) {
     Append,
   };
 }
-
-export default useFieldArrayUtils;

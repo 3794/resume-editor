@@ -41,7 +41,7 @@ function HighLights({ index }: { index: number }) {
   );
 }
 
-function Education() {
+export default function Education() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({ name: "education" });
 
@@ -84,5 +84,3 @@ function Education() {
     </>
   );
 }
-
-export default Education;

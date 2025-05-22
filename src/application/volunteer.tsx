@@ -41,7 +41,7 @@ function HighLights({ index }: { index: number }) {
   );
 }
 
-function Volunteer() {
+export default function Volunteer() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({ name: "volunteer" });
 
@@ -83,5 +83,3 @@ function Volunteer() {
     </>
   );
 }
-
-export default Volunteer;

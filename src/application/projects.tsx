@@ -41,7 +41,7 @@ function HighLights({ index }: { index: number }) {
   );
 }
 
-function Projects() {
+export default function Projects() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({ name: "projects" });
 
@@ -84,5 +84,3 @@ function Projects() {
     </>
   );
 }
-
-export default Projects;

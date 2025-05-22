@@ -41,7 +41,7 @@ function WorkHeights({ index }: { index: number }) {
   );
 }
 
-function Work() {
+export default function Work() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({ name: "work" });
 
@@ -85,5 +85,3 @@ function Work() {
     </>
   );
 }
-
-export default Work;

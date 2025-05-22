@@ -41,7 +41,7 @@ function HighLights({ index }: { index: number }) {
   );
 }
 
-function Skills() {
+export default function Skills() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({ name: "skills" });
 
@@ -62,5 +62,3 @@ function Skills() {
     </>
   );
 }
-
-export default Skills;

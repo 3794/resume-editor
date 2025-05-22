@@ -5,7 +5,7 @@ import FieldContainer from "@/components/ui/field-container";
 import { Input } from "@/components/ui/input";
 import { IInterests } from "@/model/interface";
 
-function Interests() {
+export default function Interests() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({
     name: "interests.keywords",
@@ -34,5 +34,3 @@ function Interests() {
     </>
   );
 }
-
-export default Interests;

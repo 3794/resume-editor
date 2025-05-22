@@ -5,7 +5,7 @@ import { Title } from "@/components/ui/title";
 import { Input } from "@/components/ui/input";
 import { IPublications } from "@/model/interface";
 
-function Publications() {
+export default function Publications() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({
     name: "publications",
@@ -41,5 +41,3 @@ function Publications() {
     </>
   );
 }
-
-export default Publications;

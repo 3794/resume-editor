@@ -99,7 +99,7 @@ export const MyDocument = (values: IResume) => {
           <Text>{basics.summary}</Text>
         </View>
 
-        <Text style={styles.sectionTitle}>경력</Text>
+        <Text style={styles.sectionTitle}>Work</Text>
         {work.map(
           ({ name, url, position, summary, startDate, endDate }, index) => {
             console.log(`${name}-${index}`);
@@ -119,7 +119,7 @@ export const MyDocument = (values: IResume) => {
             );
           }
         )}
-        <Text style={styles.sectionTitle}>교육</Text>
+        <Text style={styles.sectionTitle}>Education</Text>
         {education.map(({ institution, area, startDate, endDate }, index) => {
           return (
             <View style={styles.section} key={`${institution}-${index}`}>
@@ -131,7 +131,7 @@ export const MyDocument = (values: IResume) => {
             </View>
           );
         })}
-        <Text style={styles.sectionTitle}>자격증</Text>
+        <Text style={styles.sectionTitle}>Certificates</Text>
         {certificates.map(({ name, date }, index) => {
           return (
             <View style={styles.section} key={`${name}-${index}`}>
@@ -140,7 +140,7 @@ export const MyDocument = (values: IResume) => {
             </View>
           );
         })}
-        <Text style={styles.sectionTitle}>활동</Text>
+        <Text style={styles.sectionTitle}>Activities</Text>
         {activities.map(({ summary, url }, index) => {
           return (
             <View style={styles.section} key={`${summary}-${index}`}>
@@ -153,73 +153,3 @@ export const MyDocument = (values: IResume) => {
     </Document>
   );
 };
-
-// export default function typesetting(values: IResume): ContentElement[] {
-//   const { basics, work, certificates, education, activities } = values;
-
-//   const educations = education.reduce(
-//     (prev: any[], { institution, area, studyType, startDate, endDate }) => {
-//       return [
-//         ...prev,
-//         { text: institution, style: "h3" },
-//         {
-//           stack: [
-//             { text: `${area} ${studyType}`, style: "h4" },
-//             { text: `${startDate} ~ ${endDate}`, style: "span" },
-//             { text: "", style: "br" },
-//           ],
-//         },
-//       ];
-//     },
-//     []
-//   );
-
-//   const works = work.reduce(
-//     (prev: any[], { name, position, summary, startDate, endDate }) => {
-//       console.log(summary.split("\n"));
-//       return [
-//         ...prev,
-//         { text: position, style: "h3" },
-//         {
-//           stack: [
-//             { text: name, style: "h4" },
-//             { text: `${startDate} ~ ${endDate}`, style: "span" },
-//             { text: "", style: "br" },
-//             summary.split("\n").map((line) => ({ text: line, style: "span" })),
-//           ],
-//           style: "superMargin",
-//         },
-//       ];
-//     },
-//     []
-//   );
-
-//   const _certificates = certificates.reduce((prev: any[], { name, date }) => {
-//     return [...prev, name, date, { text: "", style: "br" }];
-//   }, []);
-
-//   const _activities = activities.reduce((prev: any[], { summary, url }) => {
-//     return [...prev, summary, url, { text: "", style: "br" }];
-//   }, []);
-
-//   return [
-//     { text: basics.name, style: "h1" },
-//     { text: basics.email, style: "span" },
-//     { text: basics.phone, style: "span" },
-//     basics.url,
-//     { text: "", style: "br" },
-//     { text: basics.summary, style: "span" },
-//     { text: "", style: "br" },
-//     { text: "경력", style: "h2" },
-//     works,
-//     { text: "", style: "br" },
-//     { text: "교육", style: "h2" },
-//     educations,
-//     { text: "", style: "br" },
-//     { text: "자격증", style: "h2" },
-//     _certificates,
-//     { text: "", style: "br" },
-//     { text: "활동", style: "h2" },
-//     _activities,
-//   ];
-// }

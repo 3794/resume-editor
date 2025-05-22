@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Title } from "@/components/ui/title";
 import { IAwards } from "@/model/interface";
 
-function Awards() {
+export default function Awards() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({ name: "awards" });
 
@@ -33,5 +33,3 @@ function Awards() {
     </>
   );
 }
-
-export default Awards;

@@ -6,7 +6,7 @@ import FieldContainer from "@/components/ui/field-container";
 import { Input } from "@/components/ui/input";
 import { ICertificates } from "@/model/interface";
 
-function Certificates() {
+export default function Certificates() {
   const { register } = useFormContext();
   const { fields, Remove, Append } = useFieldArrayUtils({
     name: "certificates",
@@ -38,5 +38,3 @@ function Certificates() {
     </>
   );
 }
-
-export default Certificates;
