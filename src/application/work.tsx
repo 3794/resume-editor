@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Title } from "@/components/ui/title";
 import FieldContainer from "@/components/ui/field-container";
 import { IWork } from "@/model/interface";
+import Textarea from "@/components/ui/textarea";
 
 function WorkHeights({ index }: { index: number }) {
   const { setValue, getValues } = useFormContext();
@@ -71,8 +72,7 @@ export default function Work() {
               />
             </div>
           </div>
-          <textarea
-            className="w-full p-1 border border-gray-300 rounded-md"
+          <Textarea
             placeholder="summary"
             {...register(`work.${index}.summary`)}
           />

@@ -5,6 +5,7 @@ import useFieldArrayUtils from "@/service/useFieldArrayUtils";
 import { Title } from "@/components/ui/title";
 import FieldContainer from "@/components/ui/field-container";
 import { IProfiles } from "@/model/interface";
+import Textarea from "@/components/ui/textarea";
 
 export default function Basics() {
   const { register } = useFormContext();
@@ -20,7 +21,7 @@ export default function Basics() {
         <Input placeholder="Email" {...register("basics.email")} />
         <Input placeholder="Phone" {...register("basics.phone")} />
         <Input placeholder="URL" {...register("basics.url")} />
-        <Input placeholder="Summary" {...register("basics.summary")} />
+        <Textarea placeholder="Summary" {...register("basics.summary")} />
         <Input
           placeholder="Location.Address"
           {...register("basics.location.address")}

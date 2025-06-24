@@ -1,6 +1,7 @@
 import { resumeStore } from "@/store/resumeStore";
 import { useSyncExternalStore } from "react";
 import { Button } from "./ui/button";
+import Textarea from "./ui/textarea";
 
 export default function JSONEditor() {
   const resumeData = useSyncExternalStore(
@@ -33,7 +34,7 @@ export default function JSONEditor() {
       <div className="flex justify-end">
         <Button onClick={handleDownload}>Download JSON</Button>
       </div>
-      <textarea
+      <Textarea
         defaultValue={JSON.stringify(resumeData, null, 2)}
         onChange={handleChange}
         className="flex-1 w-full border border-gray-300"
