@@ -13,7 +13,7 @@ import References from "./references";
 import Projects from "./projects";
 import { IResume } from "../model/interface";
 import { Button } from "@/components/ui/button";
-import { useEffect, useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore, useRef } from "react";
 import { resumeStore } from "../store/resumeStore";
 import Activities from "./activities";
 import { usePDF } from "@react-pdf/renderer";
@@ -45,15 +45,31 @@ export default function Form() {
     }
   };
 
-  // Subscribe to form changes and update store
+  // Subscribe to form changes and update store with debounce
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => {
     const subscription = watch((value) => {
       const v = value as IResume;
-      resumeStore.update(v);
-      update(<MyDocument {...v} />);
+
+      // Clear previous timeout
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      // Set new timeout for debounced update (500ms)
+      timeoutRef.current = setTimeout(() => {
+        resumeStore.update(v);
+        update(<MyDocument {...v} />);
+      }, 500);
     });
-    return () => subscription.unsubscribe();
-  }, [watch]);
+
+    return () => {
+      subscription.unsubscribe();
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [watch, update]);
 
   return (
     <div className="p-10">
